@@ -1,0 +1,1 @@
+# Krish_Algebra2-Precalc_Latex
