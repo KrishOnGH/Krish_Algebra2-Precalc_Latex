@@ -1,0 +1,73 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{geometry}
+\usepackage{array}
+
+\geometry{a4paper, margin=1in}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\section*{Algebra 2 Chapter 2 Assignment (Focus on Proofs)}
+\subsection*{Problems}
+
+\begin{enumerate}
+    \item[21.] Prove: If $b \neq 0$ and $d \neq 0$, then $\frac{a}{b} \cdot \frac{c}{d} = \frac{ac}{bd}$. \\
+    \textit{(Hint: Use Exercise 20. We will assume Exercise 20 is the property that for $b \neq 0, d \neq 0$, it has been proven that $\frac{1}{b} \cdot \frac{1}{d} = \frac{1}{bd}$.)}
+    
+    \vspace{1cm}
+
+    \item[22.] Prove: If $c \neq 0$ and $d \neq 0$, then $\frac{1}{\frac{c}{d}} = \frac{d}{c}$.
+    
+    \vspace{1cm}
+
+    \item[23.] Prove: If $b \neq 0$, $c \neq 0$ and $d \neq 0$, then $\frac{a}{b} \div \frac{c}{d} = \frac{ad}{bc}$.
+\end{enumerate}
+
+\newpage
+
+\section*{Solutions}
+
+\subsection*{Proof for Exercise 21}
+\begin{tabular}{l p{7cm}}
+    \textbf{Statements} & \textbf{Reasons} \\
+    \hline
+    1. $b \neq 0$ and $d \neq 0$ & 1. Given \\
+    2. $\frac{a}{b} = a \cdot \frac{1}{b}$ and $\frac{c}{d} = c \cdot \frac{1}{d}$ & 2. Definition of division \\
+    3. $\frac{a}{b} \cdot \frac{c}{d} = \left(a \cdot \frac{1}{b}\right) \cdot \left(c \cdot \frac{1}{d}\right)$ & 3. Substitution \\
+    4. $= (a \cdot c) \cdot \left(\frac{1}{b} \cdot \frac{1}{d}\right)$ & 4. Commutative and Associative properties of multiplication \\
+    5. $= ac \cdot \frac{1}{bd}$ & 5. Assumed from Exercise 20 \\
+    6. $= \frac{ac}{bd}$ & 6. Definition of division \\
+    7. $\therefore \frac{a}{b} \cdot \frac{c}{d} = \frac{ac}{bd}$ & 7. Transitive property of equality \\
+\end{tabular}
+
+\vspace{1cm}
+
+\subsection*{Proof for Exercise 22}
+\begin{tabular}{l p{7cm}}
+    \textbf{Statements} & \textbf{Reasons} \\
+    \hline
+    1. $c \neq 0$ and $d \neq 0$ & 1. Given \\
+    2. $\frac{1}{\frac{c}{d}} = 1 \div \frac{c}{d}$ & 2. Definition of fraction bar as division \\
+    3. The reciprocal of a nonzero number $x$ is $\frac{1}{x}$. The reciprocal of $\frac{c}{d}$ is $\frac{1}{\frac{c}{d}}$. & 3. Definition of a reciprocal. \\
+    4. $\frac{c}{d} \cdot \frac{d}{c} = \frac{cd}{dc} = 1$ & 4. Proof from exercise 21. \\
+    5. The reciprocal of $\frac{c}{d}$ is $\frac{d}{c}$ & 5. Definition of a reciprocal ($a \cdot b = 1$) \\
+    6. $\frac{1}{\frac{c}{d}} = \frac{d}{c}$ & 6. Substitution \\
+\end{tabular}
+
+\vspace{1cm}
+
+\subsection*{Proof for Exercise 23}
+\begin{tabular}{l p{7cm}}
+    \textbf{Statements} & \textbf{Reasons} \\
+    \hline
+    1. $b \neq 0$, $c \neq 0$, $d \neq 0$ & 1. Given \\
+    2. $\frac{a}{b} \div \frac{c}{d} = \frac{a}{b} \cdot \frac{1}{\frac{c}{d}}$ & 2. Definition of division \\
+    3. $\frac{1}{\frac{c}{d}} = \frac{d}{c}$ & 3. Result from Exercise 22 \\
+    4. $\frac{a}{b} \div \frac{c}{d} = \frac{a}{b} \cdot \frac{d}{c}$ & 4. Substitution \\
+    5. $= \frac{ad}{bc}$ & 5. Result from Exercise 21 \\
+    6. $\therefore \frac{a}{b} \div \frac{c}{d} = \frac{ad}{bc}$ & 6. Transitive property of equality \\
+\end{tabular}
+
+\end{document}
