@@ -1,0 +1,147 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+
+% Page setup
+\geometry{margin=1in}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Integrated Algebra 2 and Precalculus}
+\fancyhead[R]{Assignment: Chapter 3 of Algebra 2}
+\fancyfoot[C]{Page \thepage}
+
+\begin{document}
+
+\begin{center}
+\textbf{\Large One-to-One and Onto Functions} \\
+\vspace{0.5cm}
+\makebox[0.4\textwidth]{Name: \enspace\hrulefill}
+\hspace{0.1\textwidth}
+\makebox[0.4\textwidth]{Date: \enspace\hrulefill}
+\end{center}
+
+\vspace{0.5cm}
+
+\section{Introduction}
+
+In our previous work, we learned about functions and relations. Recall that a function is a special type of relation where each input (element in the domain) corresponds to exactly one output (element in the range). Today, we'll explore two important properties that functions can have: being \textbf{one-to-one} and being \textbf{onto}.
+
+\section{One-to-One Functions (Injective Functions)}
+
+\textbf{Definition:} A function $f: A \to B$ is called \textbf{one-to-one} (or \textbf{injective}) if different inputs always produce different outputs. 
+
+Formally: For all $x_1, x_2 \in A$, if $f(x_1) = f(x_2)$, then $x_1 = x_2$.
+
+Equivalently: For all $x_1, x_2 \in A$, if $x_1 \neq x_2$, then $f(x_1) \neq f(x_2)$.
+
+\vspace{0.7cm}
+
+\textbf{Intuition:} Think of a one-to-one function as a function where no two different inputs can produce the same output. It's like having a unique "fingerprint" for each input - no two inputs share the same output.
+
+\textbf{Visual Test:} A function is one-to-one if and only if every horizontal line intersects the graph at most once. This is called the \textbf{Horizontal Line Test}.
+
+\vspace{0.7cm}
+
+\textbf{Example 1:} Consider $f(x) = 2x + 3$.
+
+To prove this is one-to-one, assume $f(x_1) = f(x_2)$ for some $x_1, x_2$.
+
+Then: $2x_1 + 3 = 2x_2 + 3$
+$\Rightarrow 2x_1 = 2x_2$
+$\Rightarrow x_1 = x_2$
+
+Since $f(x_1) = f(x_2)$ implies $x_1 = x_2$, the function is one-to-one.
+
+\textbf{Example 2:} Consider $g(x) = x^2$.
+
+This function is NOT one-to-one. For example, $g(2) = 4$ and $g(-2) = 4$. Since $2 \neq -2$ but $g(2) = g(-2)$, the function fails to be one-to-one.
+
+\vspace{1cm}
+\newpage
+
+\section{Onto Functions (Surjective Functions)}
+
+\textbf{Definition:} A function $f: A \to B$ is called \textbf{onto} (or \textbf{surjective}) if every element in the codomain $B$ is the output of at least one element in the domain $A$.
+
+Formally: For every $y \in B$, there exists at least one $x \in A$ such that $f(x) = y$.
+
+In other words: The range of $f$ equals the codomain $B$.
+
+\vspace{0.7cm}
+
+\textbf{Intuition:} Think of an onto function as one that "covers" the entire codomain. Every possible output value is actually achieved by some input. Nothing in the codomain is "left out" or "unreachable."
+
+\textbf{Visual Test:} A function $f: A \to B$ is onto if every horizontal line at height $y$ (where $y \in B$) intersects the graph at least once.
+
+\vspace{0.7cm}
+
+\textbf{Example 3:} Consider $f: \mathbb{R} \to \mathbb{R}$ defined by $f(x) = 2x + 3$.
+
+To prove this is onto, we need to show that for any $y \in \mathbb{R}$, there exists an $x \in \mathbb{R}$ such that $f(x) = y$.
+
+Given any $y \in \mathbb{R}$, we need to solve: $2x + 3 = y$
+$\Rightarrow 2x = y - 3$
+$\Rightarrow x = \frac{y - 3}{2}$
+
+Since $x = \frac{y - 3}{2}$ is a real number for any real $y$, we can always find an input $x$ that produces the desired output $y$. Therefore, $f$ is onto.
+
+\textbf{Example 4:} Consider $g: \mathbb{R} \to \mathbb{R}$ defined by $g(x) = x^2$.
+
+This function is NOT onto. For example, there is no real number $x$ such that $x^2 = -1$. Since $-1$ is in the codomain $\mathbb{R}$ but not in the range of $g$, the function is not onto.
+
+However, if we restrict the codomain: $g: \mathbb{R} \to [0, \infty)$ defined by $g(x) = x^2$, then $g$ IS onto because every non-negative real number can be achieved as $x^2$ for some real $x$.
+
+\vspace{1cm}
+
+\newpage
+
+\section{Bijective Functions}
+
+\textbf{Definition:} A function that is both one-to-one AND onto is called \textbf{bijective} (or a \textbf{bijection}).
+
+\vspace{0.7cm}
+
+\textbf{Intuition:} A bijective function creates a perfect "pairing" between the domain and codomain. Each element in the domain corresponds to exactly one element in the codomain, and each element in the codomain corresponds to exactly one element in the domain.
+
+\vspace{0.7cm}
+
+\textbf{Example 5:} The function $f: \mathbb{R} \to \mathbb{R}$ defined by $f(x) = 2x + 3$ is bijective because:
+\begin{itemize}
+\item It's one-to-one (shown in Example 1)
+\item It's onto (shown in Example 3)
+\end{itemize}
+
+\section{Practice Problems}
+
+\textbf{Part A: Proofs}
+
+\textbf{1.} Prove that $f: \mathbb{R} \to \mathbb{R}$ defined by $f(x) = 5x + 2$ is one-to-one.
+\vspace{4cm}
+
+\textbf{2.} Prove that $f: \mathbb{R} \to \mathbb{R}$ defined by $f(x) = 5x + 2$ is onto.
+\vspace{4cm}
+
+\textbf{3.} Prove that $g: [0, \infty) \to [0, \infty)$ defined by $g(x) = x^2$ is bijective.
+\vspace{4cm}
+
+\textbf{Part B: Challenge Problems}
+
+\textbf{4.} Consider the function $f: \mathbb{R} \to \mathbb{R}$ defined by:
+$$f(x) = \begin{cases} 
+x + 1 & \text{if } x \geq 0 \\
+x - 1 & \text{if } x < 0
+\end{cases}$$
+
+Is this function one-to-one? Is it onto? Justify your answers.
+\vspace{4cm}
+
+\textbf{5.} If $f: A \to B$ is bijective, what can you say about the sizes of sets $A$ and $B$? Explain your reasoning.
+\vspace{3cm}
+
+
+
+\end{document} 
