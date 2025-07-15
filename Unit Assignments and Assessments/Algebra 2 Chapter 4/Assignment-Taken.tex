@@ -1,0 +1,264 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+
+% Page setup
+\geometry{margin=1in}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Integrated Algebra 2 and Precalculus}
+\fancyhead[R]{Assignment: Chapter 4 of Algebra 2}
+\fancyfoot[C]{Page \thepage}
+
+\begin{document}
+
+\begin{center}
+\textbf{\Large Polynomial Factoring in Different Domains} \\
+\vspace{0.5cm}
+\makebox[0.4\textwidth]{Name: \underline{Krish Arora \hspace{3.5cm}} \enspace}
+\hspace{0.1\textwidth}
+\makebox[0.4\textwidth]{Date: \underline{7/14/25 \hspace{3.5cm}} \enspace}
+\end{center}
+
+\vspace{0.5cm}
+
+\section{Introduction}
+
+In our journey through algebra, we've learned to factor polynomials using various techniques. However, what many students don't realize is that \textit{how far} we can factor a polynomial depends on which number system we're working in. A polynomial that appears "completely factored" in one number system might factor further in a larger number system.
+
+Today we'll explore polynomial factoring across different \textbf{integral domains} and \textbf{fields}, and learn about the fundamental theorem that governs polynomial factorization.
+
+\section{Definitions and Number Systems}
+
+\subsection{Integral Domains and Fields}
+
+\textbf{Definition (Integral Domain):} An integral domain is a commutative ring with no zero divisors. In simpler terms, it's a number system where we can add, subtract, and multiply (with the usual properties), and where if $a \cdot b = 0$, then either $a = 0$ or $b = 0$.
+
+\textbf{Definition (Field):} A field is an integral domain where every non-zero element has a multiplicative inverse. In other words, we can also divide by any non-zero element.
+
+\subsection{Common Number Systems}
+
+\begin{itemize}
+\item $\mathbb{Z}$ = the integers $\{\ldots, -2, -1, 0, 1, 2, \ldots\}$ (integral domain, but not a field)
+\item $\mathbb{Q}$ = the rational numbers $\left\{\frac{a}{b} : a, b \in \mathbb{Z}, b \neq 0\right\}$ (field)
+\item $\mathbb{R}$ = the real numbers (field)
+\item $\mathbb{C}$ = the complex numbers $\{a + bi : a, b \in \mathbb{R}, i^2 = -1\}$ (field)
+\end{itemize}
+
+\textbf{Inclusion Chain:} $\mathbb{Z} \subset \mathbb{Q} \subset \mathbb{R} \subset \mathbb{C}$
+
+\subsection{Polynomial Rings}
+
+When we write $F[x]$, we mean the ring of polynomials with coefficients from the system $F$. For example:
+\begin{itemize}
+\item $\mathbb{Z}[x]$ = polynomials with integer coefficients
+\item $\mathbb{Q}[x]$ = polynomials with rational coefficients  
+\item $\mathbb{R}[x]$ = polynomials with real coefficients
+\item $\mathbb{C}[x]$ = polynomials with complex coefficients
+\end{itemize}
+
+\section{Irreducible vs. Reducible Polynomials}
+
+\textbf{Definition:} A polynomial $p(x)$ of degree $\geq 1$ in $F[x]$ is called \textbf{irreducible over $F$} if it cannot be written as a product of two polynomials of positive degree with coefficients in $F$.
+
+If $p(x)$ can be factored into polynomials of positive degree over $F$, then $p(x)$ is \textbf{reducible over $F$}.
+
+\vspace{0.5cm}
+
+\textbf{Key Insight:} A polynomial's irreducibility depends on which coefficient system we're using!
+
+\section{Examples of Factoring Across Different Domains}
+
+\subsection{Example 1: $x^2 - 2$}
+
+\begin{itemize}
+\item \textbf{Over $\mathbb{Z}[x]$:} $x^2 - 2$ is irreducible (cannot be factored with integer coefficients)
+\item \textbf{Over $\mathbb{Q}[x]$:} $x^2 - 2$ is still irreducible (cannot be factored with rational coefficients)  
+\item \textbf{Over $\mathbb{R}[x]$:} $x^2 - 2 = (x - \sqrt{2})(x + \sqrt{2})$ (now it factors!)
+\item \textbf{Over $\mathbb{C}[x]$:} Same as over $\mathbb{R}[x]$ since $\sqrt{2} \in \mathbb{R} \subset \mathbb{C}$
+\end{itemize}
+
+\subsection{Example 2: $x^2 + 1$}
+
+\begin{itemize}
+\item \textbf{Over $\mathbb{Z}[x]$:} $x^2 + 1$ is irreducible
+\item \textbf{Over $\mathbb{Q}[x]$:} $x^2 + 1$ is irreducible
+\item \textbf{Over $\mathbb{R}[x]$:} $x^2 + 1$ is irreducible (no real square roots of $-1$)
+\item \textbf{Over $\mathbb{C}[x]$:} $x^2 + 1 = (x - i)(x + i)$ (factors with complex numbers!)
+\end{itemize}
+
+\subsection{Example 3: $x^4 - 4$}
+
+Let's trace this step by step:
+
+\textbf{Over $\mathbb{Z}[x]$ and $\mathbb{Q}[x]$:}
+$$x^4 - 4 = x^4 - 2^2 = (x^2)^2 - 2^2 = (x^2 - 2)(x^2 + 2)$$
+
+Both factors are irreducible over $\mathbb{Q}$ (as we can verify), so this is the complete factorization.
+
+\textbf{Over $\mathbb{R}[x]$:}
+$$x^4 - 4 = (x^2 - 2)(x^2 + 2) = (x - \sqrt{2})(x + \sqrt{2})(x^2 + 2)$$
+
+Now $x^2 - 2$ factors, but $x^2 + 2$ is still irreducible over $\mathbb{R}$.
+
+\textbf{Over $\mathbb{C}[x]$:}
+$$x^4 - 4 = (x - \sqrt{2})(x + \sqrt{2})(x - i\sqrt{2})(x + i\sqrt{2})$$
+
+Now everything factors completely!
+
+\section{The Fundamental Theorem of Algebra and Prime Factorization}
+
+\subsection{Fundamental Theorem of Algebra}
+
+\textbf{Theorem:} Every non-constant polynomial in $\mathbb{C}[x]$ has at least one root in $\mathbb{C}$.
+
+\textbf{Corollary:} Every polynomial of degree $n \geq 1$ in $\mathbb{C}[x]$ factors completely into $n$ linear factors:
+$$p(x) = a(x - r_1)(x - r_2)\cdots(x - r_n)$$
+where $a$ is the leading coefficient and $r_1, r_2, \ldots, r_n$ are the roots (counting multiplicity).
+
+\subsection{Prime Factorization for Polynomials}
+
+Just as integers have unique prime factorization, polynomials have unique factorization into irreducible polynomials.
+
+\textbf{Unique Factorization Theorem for Polynomials:} If $F$ is a field, then every non-constant polynomial in $F[x]$ can be written uniquely (up to order and units) as a product of irreducible polynomials in $F[x]$.
+
+\textbf{Irreducible Polynomials in Different Fields:}
+\begin{itemize}
+\item Over $\mathbb{C}$: Only linear polynomials $(x - a)$ are irreducible
+\item Over $\mathbb{R}$: Linear polynomials and quadratics with negative discriminant
+\item Over $\mathbb{Q}$: More complex—requires tools like Eisenstein's criterion
+\end{itemize}
+
+\newpage
+
+\section{Practice Problems}
+
+\textbf{Part A: Basic Factoring Across Domains}
+
+\textbf{1.} For each polynomial, factor it as completely as possible over the given domain:
+
+\begin{enumerate}
+\item[(a)] $x^2 - 3$ over $\mathbb{Q}[x]$, $\mathbb{R}[x]$, and $\mathbb{C}[x]$
+\\[8pt]
+\begin{minipage}[t][2.5cm][t]{\linewidth}
+    $\displaystyle \mathbb{Q}[x]$: Irreducible (The prime 3 satisfies Eisenstein's Criterion)
+    \\[8pt] $\mathbb{R}[x]: (x+\sqrt{3})(x-\sqrt{3})$
+    \\[8pt] $\mathbb{C}[x]: (x+\sqrt{3})(x-\sqrt{3})$
+\end{minipage}
+
+\item[(b)] $x^2 + 4$ over $\mathbb{Q}[x]$, $\mathbb{R}[x]$, and $\mathbb{C}[x]$
+\\[8pt]
+\begin{minipage}[t][2.5cm][t]{\linewidth}
+    $\displaystyle \mathbb{Q}[x]$: Negative Discriminant
+    \\[8pt] $\mathbb{R}[x]$: Negative Discriminant
+    \\[8pt] $\mathbb{C}[x]: (x+2i)(x-2i)$
+\end{minipage}
+
+\item[(c)] $x^3 - 2$ over $\mathbb{Q}[x]$, $\mathbb{R}[x]$, and $\mathbb{C}[x]$
+\\[8pt]
+\begin{minipage}[t][2.5cm][t]{\linewidth}
+    $\displaystyle \mathbb{Q}[x]$: Irreducible (The prime 2 satisfies Eisenstein's Criterion)
+    \\[8pt] $\mathbb{R}[x]:$ Not Irreducible (I don't know what it is though)
+    \\[8pt] $\mathbb{C}[x]$: Same as Above
+\end{minipage}
+\end{enumerate}
+
+\textbf{2.} Consider the polynomial $p(x) = x^4 - 5x^2 + 6$.
+
+\begin{enumerate}
+\item[(a)] Factor $p(x)$ completely over $\mathbb{Q}[x]$.
+\\[8pt]
+\begin{minipage}[t][2.5cm][t]{\linewidth}
+    $\displaystyle$let $y = x^2$
+    \\[8pt] $y^2-5y+6 = (y-2)(y-3)$
+    \\[8pt] $(x^2-2)(x^2-3)$
+\end{minipage}
+
+\item[(b)] Factor $p(x)$ completely over $\mathbb{R}[x]$.
+\\[8pt]
+\begin{minipage}[t][2.5cm][t]{\linewidth}
+    $\displaystyle$let $y = x^2$
+    \\[8pt] $y^2-5y+6 = (y-2)(y-3)$
+    \\[8pt] $(x^2-2)(x^2-3) = (x+\sqrt{2})(x-\sqrt{2})(x+\sqrt{3})(x-\sqrt{3})$
+\end{minipage}
+
+\item[(c)] Factor $p(x)$ completely over $\mathbb{C}[x]$.
+\\[8pt]
+\begin{minipage}[t][2.5cm][t]{\linewidth}
+    $\displaystyle$let $y = x^2$
+    \\[8pt] $y^2-5y+6 = (y-2)(y-3)$
+    \\[8pt] $(x^2-2)(x^2-3) = (x+\sqrt{2})(x-\sqrt{2})(x+\sqrt{3})(x-\sqrt{3})$
+\end{minipage}
+\end{enumerate}
+
+\textbf{Part B: Understanding Irreducibility}
+
+\textbf{3.} Determine whether each polynomial is irreducible over the given domain. Justify your answer.
+
+\begin{enumerate}
+\item[(a)] $x^2 + x + 1$ over $\mathbb{Q}[x]$
+\\[8pt]
+\begin{minipage}[t][1cm][t]{\linewidth}
+    $\displaystyle$ Irreducible since it is irreducible over $\mathbb{R}[x]$.
+\end{minipage}
+
+\item[(b)] $x^2 + x + 1$ over $\mathbb{R}[x]$
+\\[8pt]
+\begin{minipage}[t][1cm][t]{\linewidth}
+    $\displaystyle$ Irreducible because of negative discriminant.
+\end{minipage}
+
+\item[(c)] $x^3 + x + 1$ over $\mathbb{Q}[x]$ (Hint: Check for rational roots)
+\\[8pt]
+\begin{minipage}[t][1cm][t]{\linewidth}
+    $\displaystyle$ Irreducible because of no rational roots.
+\end{minipage}
+\end{enumerate}
+
+\textbf{4.} Show that $x^2 - 2$ is irreducible over $\mathbb{Q}[x]$ by proving that $\sqrt{2}$ is irrational.
+\\[8pt]
+\begin{minipage}[t][4cm][t]{\linewidth}
+    $\displaystyle$ Because of the Quadratic Formula, we know that $x^2-2$ only has roots $\sqrt{2}$ and $-\sqrt{2}$.
+    \\[8pt] Assume $\sqrt{2} = \frac{a}{b}$ is in lowest term with the greatest common denominator being 1.
+    \\[8pt] Then $a^2 = 2b^2$, so $a$ is even.
+    \\[8pt] Let $a = 2k$, then $4k^2 = 2b^2$ implies $b^2 = 2k^2$, so $b$ is even, which means $\sqrt{2}$ is irrational.
+    \\[8pt] Since it has no rational roots, it is irreducible over $\mathbb{Q}[x]$.
+\end{minipage}
+
+\newpage
+
+\section{Challenge Problems}
+
+\textbf{5.} Consider the polynomial $f(x) = x^4 + x^3 + x^2 + x + 1$.
+
+\begin{enumerate}
+\item[(a)] Show that $f(x) = \frac{x^5 - 1}{x - 1}$ for $x \neq 1$.
+\vspace{2cm}
+
+\item[(b)] Use the fact that $x^5 - 1 = (x-1)(x^4 + x^3 + x^2 + x + 1)$ and the factorization of $x^5 - 1$ over $\mathbb{C}$ to factor $f(x)$ completely over $\mathbb{C}[x]$.
+\vspace{3cm}
+
+\item[(c)] What can you say about the irreducibility of $f(x)$ over $\mathbb{Q}[x]$? (This is the 5th cyclotomic polynomial)
+\vspace{2cm}
+\end{enumerate}
+
+\newpage
+
+\textbf{6.} \textbf{Eisenstein's Criterion:} A powerful tool for proving irreducibility over $\mathbb{Q}[x]$ is Eisenstein's criterion:
+
+If $p(x) = a_n x^n + a_{n-1} x^{n-1} + \cdots + a_1 x + a_0$ with integer coefficients, and there exists a prime $p$ such that:
+\begin{itemize}
+\item $p$ does not divide $a_n$
+\item $p$ divides $a_i$ for all $i < n$  
+\item $p^2$ does not divide $a_0$
+\end{itemize}
+then $p(x)$ is irreducible over $\mathbb{Q}[x]$.
+
+Use Eisenstein's criterion to prove that $x^3 + 2x + 2$ is irreducible over $\mathbb{Q}[x]$.
+\vspace{3cm}
+
+\end{document}
