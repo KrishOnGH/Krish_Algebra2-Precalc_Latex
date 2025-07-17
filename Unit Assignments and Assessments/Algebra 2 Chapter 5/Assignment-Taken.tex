@@ -1,0 +1,284 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+
+% Page setup
+\geometry{margin=1in}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Integrated Algebra 2 and Precalculus}
+\fancyhead[R]{Assignment: Chapter 5 of Algebra 2}
+\fancyfoot[C]{Page \thepage}
+
+\begin{document}
+
+\begin{center}
+\textbf{\Large Rational Functions: Features and Behavior Analysis} \\
+\vspace{0.5cm}
+\makebox[0.4\textwidth]{Name: \underline{Krish Arora \hspace{3.5cm}} \enspace}
+\hspace{0.1\textwidth}
+\makebox[0.4\textwidth]{Date: \underline{7/16/25 \hspace{3.5cm}} \enspace}
+\end{center}
+
+\vspace{0.5cm}
+
+\section{Introduction}
+
+Rational functions are among the most important functions in mathematics, appearing everywhere from physics to economics. A \textbf{rational function} is any function that can be written as the quotient of two polynomials:
+
+$$f(x) = \frac{P(x)}{Q(x)}$$
+
+where $P(x)$ and $Q(x)$ are polynomials and $Q(x) \neq 0$.
+
+In this assignment, we'll explore the key features of rational functions and introduce a powerful tool from calculus—derivatives—to analyze where these functions are increasing and decreasing.
+
+\section{Key Features of Rational Functions}
+
+\subsection{Domain and Vertical Asymptotes}
+
+The \textbf{domain} of a rational function consists of all real numbers except those that make the denominator zero.
+
+\textbf{Vertical Asymptotes} occur at values of $x$ where the denominator equals zero but the numerator does not (after canceling common factors).
+
+\textbf{Example:} For $f(x) = \frac{x^2 - 1}{x^2 - 4}$:
+\begin{itemize}
+\item Domain: $x \in \mathbb{R}, x \neq \pm 2$
+\item Vertical asymptotes: $x = -2$ and $x = 2$
+\end{itemize}
+
+\subsection{Horizontal and Oblique Asymptotes}
+
+\textbf{Horizontal Asymptotes} describe the end behavior of rational functions:
+
+For $f(x) = \frac{a_n x^n + \cdots + a_0}{b_m x^m + \cdots + b_0}$:
+\begin{itemize}
+\item If $n < m$: horizontal asymptote at $y = 0$
+\item If $n = m$: horizontal asymptote at $y = \frac{a_n}{b_m}$
+\item If $n = m + 1$: oblique asymptote (no horizontal asymptote)
+\item If $n > m + 1$: no horizontal or oblique asymptote
+\end{itemize}
+
+\textbf{Oblique Asymptotes} occur when the degree of the numerator is exactly one more than the degree of the denominator. Find it by polynomial long division.
+
+\subsection{Holes (Removable Discontinuities)}
+
+A \textbf{hole} occurs when both the numerator and denominator have a common factor that cancels out.
+
+\textbf{Example:} $g(x) = \frac{x^2 - 1}{x - 1} = \frac{(x-1)(x+1)}{x-1} = x + 1$ for $x \neq 1$
+
+There's a hole at $x = 1$, and the $y$-coordinate of the hole is $g(1) = 1 + 1 = 2$.
+
+\subsection{Intercepts}
+
+\begin{itemize}
+\item \textbf{$x$-intercepts}: Set the numerator equal to zero and solve
+\item \textbf{$y$-intercept}: Evaluate $f(0)$ (if $x = 0$ is in the domain)
+\end{itemize}
+
+\section{Introduction to Derivatives and Function Behavior}
+
+\subsection{The Concept of a Derivative}
+
+The \textbf{derivative} of a function $f(x)$ at a point gives us the \textit{instantaneous rate of change} of the function at that point. Geometrically, it's the slope of the tangent line to the curve.
+
+We denote the derivative as $f'(x)$ or $\frac{df}{dx}$.
+
+\subsection{Basic Derivative Rules}
+
+Here are some fundamental rules you'll need:
+
+\textbf{Power Rule:} If $f(x) = x^n$, then $f'(x) = nx^{n-1}$
+
+\textbf{Constant Rule:} If $f(x) = c$ (constant), then $f'(x) = 0$
+
+\textbf{Sum/Difference Rule:} $(f \pm g)' = f' \pm g'$
+
+\textbf{Product Rule:} $(fg)' = f'g + fg'$
+
+\textbf{Quotient Rule:} $\left(\frac{f}{g}\right)' = \frac{f'g - fg'}{g^2}$
+
+\subsection{The Connection: Derivatives and Increasing/Decreasing Behavior}
+
+Here's the key insight:
+\begin{itemize}
+\item If $f'(x) > 0$ on an interval, then $f(x)$ is \textbf{increasing} on that interval
+\item If $f'(x) < 0$ on an interval, then $f(x)$ is \textbf{decreasing} on that interval
+\item If $f'(x) = 0$ at a point, the function may have a \textbf{critical point} (local max, min, or inflection point)
+\end{itemize}
+
+\subsection{Example: Analyzing $f(x) = \frac{x^2 - 4}{x}$}
+
+Let's find where this function is increasing and decreasing.
+
+\textbf{Step 1:} Find the derivative using the quotient rule.
+$$f(x) = \frac{x^2 - 4}{x} = x - \frac{4}{x}$$
+
+Using the simpler form:
+$$f'(x) = 1 - \frac{d}{dx}\left(\frac{4}{x}\right) = 1 - 4 \cdot \frac{d}{dx}(x^{-1}) = 1 - 4(-1)x^{-2} = 1 + \frac{4}{x^2}$$
+
+\textbf{Step 2:} Analyze the sign of $f'(x)$.
+
+Since $\frac{4}{x^2} > 0$ for all $x \neq 0$, we have:
+$$f'(x) = 1 + \frac{4}{x^2} > 0 \text{ for all } x \neq 0$$
+
+\textbf{Step 3:} Conclusion.
+
+The function $f(x) = \frac{x^2 - 4}{x}$ is increasing on $(-\infty, 0)$ and on $(0, \infty)$.
+
+Note: We exclude $x = 0$ from the domain since the original function is undefined there.
+
+\newpage
+
+\section{Practice Problems}
+
+\textbf{Part A: Identifying Features of Rational Functions}
+
+\textbf{1.} For each rational function, find:
+\begin{itemize}
+\item Domain
+\item Vertical asymptotes
+\item Horizontal or oblique asymptotes
+\item Holes (if any)
+\item $x$ and $y$ intercepts
+\end{itemize}
+
+\begin{enumerate}
+\item[(a)] $f(x) = \frac{2x - 6}{x + 3}$
+\\[8pt]
+\begin{minipage}[t][4cm][t]{\linewidth}
+    $\displaystyle$Domain: $x \in R, x \neq -3$
+    \\[8pt] Vertical Asymptotes: $x=-3$
+    \\[8pt] Horizontal/Oblique Asymptotes: $y=2$
+    \\[8pt] Holes: None
+    \\[8pt] Intercepts: $x=3$ and $y=-2$
+\end{minipage}
+
+\item[(b)] $g(x) = \frac{x^2 - 9}{x^2 - 2x - 3}$
+\\[8pt]
+\begin{minipage}[t][4cm][t]{\linewidth}
+    $\displaystyle$Domain: $x \in R, x \notin \{-1, 3\}$
+    \\[8pt] Vertical Asymptotes: $x \in \{-1, 3\}$
+    \\[8pt] Horizontal/Oblique Asymptotes: $y=0$
+    \\[8pt] Holes: $x=3$
+    \\[8pt] Intercepts: $x=\pm3$ and $y=3$
+\end{minipage}
+
+\item[(c)] $h(x) = \frac{x^3 + 1}{x^2 - 1}$
+\\[8pt]
+\begin{minipage}[t][4cm][t]{\linewidth}
+    $\displaystyle$Domain: $x \in R, x \neq \pm 1$
+    \\[8pt] Vertical Asymptotes: $x = \pm 1$
+    \\[8pt] Horizontal/Oblique Asymptotes: $y=x$
+    \\[8pt] Holes: $x=-1$
+    \\[8pt] Intercepts: $x=-1$ and $y=-1$
+\end{minipage}
+\end{enumerate}
+
+\newpage
+
+\textbf{2.} Find the oblique asymptote for $f(x) = \frac{2x^2 + x - 3}{x - 1}$ using polynomial long division.
+\begin{minipage}[t][4cm][t]{\linewidth}
+    $\displaystyle \frac{2x^2+x-3}{x-1} = x+3 (x \neq 1)$
+\end{minipage}
+
+\newpage
+
+\textbf{Part B: Introduction to Derivatives}
+
+\textbf{3.} Find the derivative of each function:
+
+\begin{enumerate}
+\item[(a)] $f(x) = 3x^4 - 2x^2 + 7$
+\\[8pt]
+\begin{minipage}[t][2cm][t]{\linewidth}
+    $\displaystyle f'(x) = 12x^3-4x$
+\end{minipage}
+
+\item[(b)] $g(x) = \frac{1}{x^2} + \sqrt{x}$ (Hint: Rewrite using negative and fractional exponents)
+\\[8pt]
+\begin{minipage}[t][2cm][t]{\linewidth}
+    $\displaystyle f'(x) = \frac{d}{dx} x^{-2} + x^{\frac{1}{2}} = -\frac{2}{x^{3}} + \frac{1}{2\sqrt{x}}$
+\end{minipage}
+
+\item[(c)] $h(x) = (x^2 + 1)(x - 3)$ (Use the product rule)
+\\[8pt]
+\begin{minipage}[t][3cm][t]{\linewidth}
+    $\displaystyle f'(x) = (2x)(x-3) + (x^2+1)(1) = 2x^2-6x+x^2+1 = 3x^2-6x+1$
+\end{minipage}
+
+\item[(d)] $k(x) = \frac{x^2 + 1}{x - 2}$ (Use the quotient rule)
+\\[8pt]
+\begin{minipage}[t][3cm][t]{\linewidth}
+    $\displaystyle f'(x) = \frac{(2x)(x-2) - (x^2+1)(1)}{x^2-4x+4} = \frac{2x^2-4x-x^2-1}{x^2-4x+4} = \frac{x^2-4x-1}{x^2-4x-4}$
+\end{minipage}
+\end{enumerate}
+
+\textbf{Part C: Analyzing Increasing/Decreasing Behavior}
+
+\textbf{4.} For each rational function:
+\begin{itemize}
+\item Find the derivative
+\item Determine where the derivative is positive, negative, or zero
+\item State the intervals where the function is increasing or decreasing
+\end{itemize}
+
+\begin{enumerate}
+\item[(a)] $f(x) = \frac{x^2}{x + 1}$
+\\[8pt]
+\begin{minipage}[t][3cm][t]{\linewidth}
+    $\displaystyle f'(x) = \frac{(2x)(x+1) - (x^2)(1)}{x^2+2x+1} = \frac{2x^2+2x-x^2}{x^2+2x+1} = \frac{x^2+2x}{x^2+2x+1}$
+    \\[8pt] Zero: $x \in \{-2, 0\}$ ; Negative: $x \in (-2, 0)$ ; Positive: $x \in (-\infty, -2)$ or $x \in (0, \infty)$
+    \\[8pt] Decreasing: $x \in (-2, 0)$ ; Increasing: $x \in (-\infty, -2)$ or $x \in (0, \infty)$
+\end{minipage}
+
+\item[(b)] $g(x) = \frac{x}{x^2 + 1}$
+\\[8pt]
+\begin{minipage}[t][3cm][t]{\linewidth}
+    $\displaystyle f'(x) = \frac{(1)(x^2+1) - (x)(2x)}{x^4+2x^2+1} = \frac{x^2+1-2x^2}{x^4+2x^2+1} = \frac{-x^2+1}{x^4+2x^2+1}$
+    \\[8pt] Zero: $x \in \{-1, 1\}$ ; Negative: $x \in (-\infty, -1)$ or $x \in (1, \infty)$ ; Positive: $x \in (-1, 1)$
+    \\[8pt] Decreasing: $x \in (-\infty, -1)$ or $x \in (1, \infty)$ ; Increasing: $x \in (-1, 1)$
+\end{minipage}
+\end{enumerate}
+
+\newpage
+
+\textbf{5.} Consider the function $f(x) = \frac{x^2 - 1}{x}$.
+
+\begin{enumerate}
+\item[(a)] Rewrite $f(x)$ in the form $f(x) = x - \frac{1}{x}$.
+\\[8pt]
+\begin{minipage}[t][1cm][t]{\linewidth}
+    $\displaystyle f(x) = x - \frac{1}{x}$
+\end{minipage}
+
+\item[(b)] Find $f'(x)$.
+\\[8pt]
+\begin{minipage}[t][2cm][t]{\linewidth}
+    $\displaystyle f'(x) = 1 + x^{-2}$
+\end{minipage}
+
+\item[(c)] Solve $f'(x) = 0$ to find critical points.
+\\[8pt]
+\begin{minipage}[t][2cm][t]{\linewidth}
+    $\displaystyle f'(x)$ is never 0.
+\end{minipage}
+
+\item[(d)] Determine the sign of $f'(x)$ on each interval determined by the critical points and vertical asymptotes.
+\\[8pt]
+\begin{minipage}[t][2cm][t]{\linewidth}
+    $\displaystyle f'(x)$ is always positive.
+\end{minipage}
+
+\item[(e)] State where $f(x)$ is increasing and decreasing.
+\\[8pt]
+\begin{minipage}[t][2cm][t]{\linewidth}
+    $\displaystyle f(x)$ is always increasing since its rate of change (derivative) is always positive.
+\end{minipage}
+\end{enumerate}
+
+\end{document}
