@@ -1,0 +1,208 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+
+% Page setup
+\geometry{margin=1in}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Integrated Algebra 2 and Precalculus}
+\fancyhead[R]{Assignment: Chapter 6 of Algebra 2}
+\fancyfoot[C]{Page \thepage}
+
+\begin{document}
+
+\begin{center}
+\textbf{\Large Complex Numbers: Absolute Values and Conjugates} \\
+\vspace{0.5cm}
+\makebox[0.4\textwidth]{Name: \enspace\hrulefill}
+\hspace{0.1\textwidth}
+\makebox[0.4\textwidth]{Date: \enspace\hrulefill}
+\end{center}
+
+\vspace{0.5cm}
+
+\section{Introduction}
+
+Complex numbers extend our number system beyond the real numbers, allowing us to work with the square roots of negative numbers. In this chapter, we'll explore two fundamental operations on complex numbers: the \textbf{absolute value} (or modulus) and the \textbf{complex conjugate}. These operations have beautiful mathematical properties that we'll prove and apply.
+
+A \textbf{complex number} is any number that can be written in the form:
+$$z = a + bi$$
+where $a$ and $b$ are real numbers, and $i$ is the imaginary unit with the property that $i^2 = -1$.
+
+\section{Key Definitions and Properties}
+
+\subsection{The Complex Conjugate}
+
+\textbf{Definition:} The \textbf{complex conjugate} of a complex number $z = a + bi$ is denoted $\overline{z}$ and defined as:
+$$\overline{z} = a - bi$$
+
+\textbf{Example:} If $z = 3 + 4i$, then $\overline{z} = 3 - 4i$.
+
+\textbf{Key Properties of Complex Conjugates:}
+\begin{enumerate}
+\item $\overline{\overline{z}} = z$ (taking the conjugate twice returns the original number)
+\item $\overline{z_1 + z_2} = \overline{z_1} + \overline{z_2}$ (conjugate distributes over addition)
+\item $\overline{z_1 \cdot z_2} = \overline{z_1} \cdot \overline{z_2}$ (conjugate distributes over multiplication)
+\item $z + \overline{z} = 2a$ (sum of a complex number and its conjugate is twice the real part)
+\item $z \cdot \overline{z}$ is always a real number
+\end{enumerate}
+
+\subsection{The Absolute Value (Modulus)}
+
+\textbf{Definition:} The \textbf{absolute value} or \textbf{modulus} of a complex number $z = a + bi$ is denoted $|z|$ and defined as:
+$$|z| = \sqrt{a^2 + b^2}$$
+
+Geometrically, $|z|$ represents the distance from the origin to the point $(a, b)$ in the complex plane.
+
+\textbf{Example:} If $z = 3 + 4i$, then $|z| = \sqrt{3^2 + 4^2} = \sqrt{9 + 16} = \sqrt{25} = 5$.
+
+\textbf{Key Properties of Absolute Values:}
+\begin{enumerate}
+\item $|z| \geq 0$ for all complex numbers $z$, and $|z| = 0$ if and only if $z = 0$
+\item $|\overline{z}| = |z|$ (a complex number and its conjugate have the same absolute value)
+\item $|z|^2 = z \cdot \overline{z}$
+\item $|z_1 \cdot z_2| = |z_1| \cdot |z_2|$ (absolute value of a product equals the product of absolute values)
+\item $\left|\frac{z_1}{z_2}\right| = \frac{|z_1|}{|z_2|}$ (for $z_2 \neq 0$)
+\end{enumerate}
+
+\section{Fundamental Relationship}
+
+There's a beautiful connection between conjugates and absolute values:
+
+\textbf{Theorem:} For any complex number $z = a + bi$:
+$$z \cdot \overline{z} = |z|^2$$
+
+\textbf{Proof:} Let $z = a + bi$. Then $\overline{z} = a - bi$.
+\begin{align}
+z \cdot \overline{z} &= (a + bi)(a - bi) \\
+&= a^2 - abi + abi - b^2i^2 \\
+&= a^2 - b^2(-1) \\
+&= a^2 + b^2 \\
+&= |z|^2
+\end{align}
+
+\section{Example Proofs}
+
+\subsection{Example 1: Proving $|\overline{z}| = |z|$}
+
+\textbf{Proof:} Let $z = a + bi$. Then $\overline{z} = a - bi$.
+\begin{align}
+|\overline{z}| &= |a - bi| \\
+&= \sqrt{a^2 + (-b)^2} \\
+&= \sqrt{a^2 + b^2} \\
+&= |z|
+\end{align}
+
+\subsection{Example 2: Proving the Conjugate of a Product Property}
+
+\textbf{Theorem:} For any complex numbers $z_1$ and $z_2$: $\overline{z_1 \cdot z_2} = \overline{z_1} \cdot \overline{z_2}$
+
+\textbf{Proof:} Let $z_1 = a + bi$ and $z_2 = c + di$.
+\begin{align}
+z_1 \cdot z_2 &= (a + bi)(c + di) \\
+&= ac + adi + bci + bdi^2 \\
+&= (ac - bd) + (ad + bc)i
+\end{align}
+
+Therefore:
+$$\overline{z_1 \cdot z_2} = (ac - bd) - (ad + bc)i$$
+
+Now let's compute $\overline{z_1} \cdot \overline{z_2}$:
+\begin{align}
+\overline{z_1} \cdot \overline{z_2} &= (a - bi)(c - di) \\
+&= ac - adi - bci + bdi^2 \\
+&= (ac - bd) - (ad + bc)i
+\end{align}
+
+Since both expressions are equal, we have proven that $\overline{z_1 \cdot z_2} = \overline{z_1} \cdot \overline{z_2}$.
+
+\newpage
+
+\section{Practice Problems}
+
+\textbf{Part A: Basic Computations}
+
+\textbf{1.} For each complex number, find its conjugate and absolute value:
+
+\begin{enumerate}
+\item[(a)] $z = 5 + 12i$
+\vspace{2cm}
+
+\item[(b)] $z = -3 + 4i$
+\vspace{2cm}
+
+\item[(c)] $z = 7i$ (purely imaginary)
+\vspace{2cm}
+
+\item[(d)] $z = -6$ (purely real)
+\vspace{2cm}
+\end{enumerate}
+
+\textbf{2.} Verify that $z \cdot \overline{z} = |z|^2$ for $z = 2 + 3i$.
+\vspace{3cm}
+
+\textbf{Part B: Proving Properties}
+
+\textbf{3.} Prove that for any complex number $z$: $\overline{\overline{z}} = z$
+
+\textit{Hint: Let $z = a + bi$ and apply the conjugate operation twice.}
+\vspace{4cm}
+
+\textbf{4.} Prove that for any complex numbers $z_1$ and $z_2$: $\overline{z_1 + z_2} = \overline{z_1} + \overline{z_2}$
+
+\textit{Hint: Let $z_1 = a + bi$ and $z_2 = c + di$, then compute both sides.}
+\vspace{5cm}
+
+\newpage
+
+\textbf{5.} Prove that for any complex numbers $z_1$ and $z_2$: $|z_1 \cdot z_2| = |z_1| \cdot |z_2|$
+
+\textit{Hint: Use the fact that $|z|^2 = z \cdot \overline{z}$ and the property that $\overline{z_1 \cdot z_2} = \overline{z_1} \cdot \overline{z_2}$.}
+\vspace{6cm}
+
+\textbf{6.} Prove that for any complex number $z$: $z + \overline{z} = 2 \text{Re}(z)$
+
+where $\text{Re}(z)$ denotes the real part of $z$.
+\vspace{4cm}
+
+\textbf{Part C: Introduction to Euler's Identity}
+
+Complex numbers have a beautiful connection to trigonometry through \textbf{Euler's Identity}, one of the most elegant formulas in mathematics:
+
+$$e^{i\theta} = \cos(\theta) + i\sin(\theta)$$
+
+This means any complex number can be written in \textbf{polar form} as:
+$$z = r(\cos(\theta) + i\sin(\theta)) = re^{i\theta}$$
+
+where $r = |z|$ is the modulus and $\theta$ is the argument (angle from the positive real axis).
+
+\textbf{7.} Convert the following complex numbers to polar form $re^{i\theta}$:
+
+\begin{enumerate}
+\item[(a)] $z = 1 + i$
+\vspace{3cm}
+
+\item[(b)] $z = -2 + 2i\sqrt{3}$
+\vspace{3cm}
+\end{enumerate}
+
+\textbf{8.} Using Euler's identity, prove that $|e^{i\theta}| = 1$ for any real number $\theta$.
+
+\textit{Hint: Use the fact that $|z|^2 = z \cdot \overline{z}$ and find $\overline{e^{i\theta}}$.}
+\vspace{4cm}
+
+\textbf{9.} The most famous case of Euler's identity occurs when $\theta = \pi$:
+$$e^{i\pi} + 1 = 0$$
+
+This equation connects five fundamental mathematical constants: $e$, $i$, $\pi$, $1$, and $0$.
+
+Using Euler's identity, verify this remarkable equation by substituting $\theta = \pi$.
+\vspace{3cm}
+
+\end{document}
