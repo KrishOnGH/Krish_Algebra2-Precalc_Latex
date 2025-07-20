@@ -1,0 +1,217 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+
+% Page setup
+\geometry{margin=1in}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Integrated Algebra 2 and Precalculus}
+\fancyhead[R]{Extension Assignment: Chapter 7 of Algebra 2}
+\fancyfoot[C]{Page \thepage}
+
+\begin{document}
+
+\begin{center}
+\textbf{\Large Advanced Quadratic Explorations} \\
+\textbf{\large Constraint Problems and Parametric Families} \\
+\vspace{0.5cm}
+\makebox[0.4\textwidth]{Name: \enspace\hrulefill}
+\hspace{0.1\textwidth}
+\makebox[0.4\textwidth]{Date: \enspace\hrulefill}
+\end{center}
+
+\vspace{0.5cm}
+
+\section{Introduction}
+
+Now that you've mastered the fundamental techniques for solving quadratic equations, we'll explore some fascinating extensions that combine multiple concepts and push the boundaries of what we can do with quadratic functions. These problems require creative thinking and deep understanding of the underlying mathematics.
+
+\section{Challenge Problems}
+
+\textbf{Problem 1: Constraint-Based Construction}
+
+Write a quadratic function $f(x) = ax^2 + bx + c$ that satisfies \textbf{all} of the following constraints:
+\begin{itemize}
+\item The $y$-intercept is 24
+\item The distance between the $x$-intercepts is exactly 10
+\item The coefficient $a$ is a rational number with denominator 25
+\end{itemize}
+
+Find at least three different solutions. \textit{Hint: Consider different forms of quadratic equations.}
+
+\vspace{4cm}
+
+\textbf{Problem 2: Exponential-Quadratic Equations}
+
+Solve for all real values of $x$:
+$$(x^2 - 5x + 6)^{(x^2 - 7x + 12)} = 1$$
+
+\textit{Hint: When does $a^b = 1$? Consider all cases systematically.}
+
+\vspace{5cm}
+
+\textbf{Problem 3: Parametric Family Analysis}
+
+Consider the family of quadratic functions $f_k(x) = x^2 + kx + (k^2 - 4)$ where $k$ is a real parameter.
+
+\begin{enumerate}
+\item[(a)] For what values of $k$ does $f_k(x)$ have exactly one real root?
+\vspace{2cm}
+
+\item[(b)] Show that regardless of the value of $k$, all parabolas in this family pass through two fixed points. Find these points.
+\vspace{3cm}
+
+\item[(c)] Find the value of $k$ such that the vertex of $f_k(x)$ has the smallest possible $y$-coordinate.
+\vspace{3cm}
+\end{enumerate}
+
+\newpage
+
+\textbf{Problem 4: Optimization with Constraints}
+
+Among all quadratic functions $f(x) = ax^2 + bx + c$ with $a > 0$ that pass through the points $(1, 3)$ and $(3, 7)$, find the one that has the smallest possible value at $x = 2$.
+
+What is this minimum value?
+
+\vspace{4cm}
+
+\textbf{Problem 5: Quadratic Diophantine Challenge}
+
+Find all integer solutions $(x, y)$ to the equation:
+$$x^2 + y^2 - 4x - 6y + 13 = 0$$
+
+\textit{Hint: Complete the square in both variables.}
+
+\vspace{4cm}
+
+\newpage
+
+\section{Solutions}
+
+\textbf{Solution to Problem 1:}
+
+We need a quadratic function $f(x) = ax^2 + bx + c$ where:
+\begin{itemize}
+\item $y$-intercept is 24: $c = 24$
+\item Distance between $x$-intercepts is 10
+\item $a$ has denominator 25
+\end{itemize}
+
+If the $x$-intercepts are $r_1$ and $r_2$, then $|r_1 - r_2| = 10$.
+
+Using the quadratic formula: $|r_1 - r_2| = \frac{\sqrt{b^2 - 4ac}}{|a|} = 10$
+
+So $\sqrt{b^2 - 4ac} = 10|a|$, which gives us $b^2 - 4ac = 100a^2$.
+
+Since $c = 24$: $b^2 - 96a = 100a^2$, so $b^2 = 100a^2 + 96a$.
+
+For $a = \frac{1}{25}$: $b^2 = 100 \cdot \frac{1}{625} + 96 \cdot \frac{1}{25} = \frac{4}{25} + \frac{96}{25} = 4$
+
+So $b = \pm 2$, giving us: $f(x) = \frac{1}{25}x^2 \pm 2x + 24$
+
+For $a = \frac{4}{25}$: $b^2 = 100 \cdot \frac{16}{625} + 96 \cdot \frac{4}{25} = \frac{64}{25} + \frac{384}{25} = \frac{448}{25}$
+
+So $b = \pm \frac{4\sqrt{28}}{5} = \pm \frac{8\sqrt{7}}{5}$, giving us: $f(x) = \frac{4}{25}x^2 \pm \frac{8\sqrt{7}}{5}x + 24$
+
+For $a = \frac{9}{25}$: $b^2 = 100 \cdot \frac{81}{625} + 96 \cdot \frac{9}{25} = \frac{324}{25} + \frac{864}{25} = \frac{1188}{25}$
+
+So $b = \pm \frac{6\sqrt{33}}{5}$, giving us: $f(x) = \frac{9}{25}x^2 \pm \frac{6\sqrt{33}}{5}x + 24$
+
+\textbf{Solution to Problem 2:}
+
+$(x^2 - 5x + 6)^{(x^2 - 7x + 12)} = 1$
+
+For $a^b = 1$, we need one of these cases:
+\begin{enumerate}
+\item $a = 1$ (any $b$)
+\item $a = -1$ and $b$ is even
+\item $a \neq 0$ and $b = 0$
+\end{enumerate}
+
+First, factor the expressions:
+$x^2 - 5x + 6 = (x-2)(x-3)$
+$x^2 - 7x + 12 = (x-3)(x-4)$
+
+\textbf{Case 1:} $x^2 - 5x + 6 = 1$
+$x^2 - 5x + 5 = 0$
+$x = \frac{5 \pm \sqrt{25-20}}{2} = \frac{5 \pm \sqrt{5}}{2}$
+
+\textbf{Case 2:} $x^2 - 5x + 6 = -1$ and $x^2 - 7x + 12$ is even
+$x^2 - 5x + 7 = 0$ has discriminant $25 - 28 = -3 < 0$, so no real solutions.
+
+\textbf{Case 3:} $x^2 - 7x + 12 = 0$
+$(x-3)(x-4) = 0$, so $x = 3$ or $x = 4$
+
+Check: When $x = 3$: $x^2 - 5x + 6 = 9 - 15 + 6 = 0$, but $0^0$ is undefined.
+When $x = 4$: $x^2 - 5x + 6 = 16 - 20 + 6 = 2 \neq 0$, so this works.
+
+Therefore, the solutions are: $x = \frac{5 + \sqrt{5}}{2}, \frac{5 - \sqrt{5}}{2}, 4$
+
+\textbf{Solution to Problem 3:}
+
+For $f_k(x) = x^2 + kx + (k^2 - 4)$:
+
+\textbf{(a)} $f_k(x)$ has exactly one real root when the discriminant equals zero:
+$\Delta = k^2 - 4(k^2 - 4) = k^2 - 4k^2 + 16 = 16 - 3k^2 = 0$
+$3k^2 = 16$, so $k = \pm \frac{4\sqrt{3}}{3}$
+
+\textbf{(b)} To find fixed points, set $f_k(x) = f_j(x)$ for different values $k, j$:
+$x^2 + kx + (k^2 - 4) = x^2 + jx + (j^2 - 4)$
+$(k-j)x + (k^2 - j^2) = 0$
+$(k-j)x + (k-j)(k+j) = 0$
+$(k-j)(x + k + j) = 0$
+
+For $k \neq j$: $x = -(k+j)$
+
+This means all parabolas pass through points independent of $k$. Setting $k = 0$:
+$f_0(x) = x^2 - 4 = (x-2)(x+2)$
+
+The fixed points are $(2, 0)$ and $(-2, 0)$.
+
+\textbf{(c)} The vertex is at $x = -\frac{k}{2}$, so $y = f_k(-\frac{k}{2}) = \frac{k^2}{4} - \frac{k^2}{2} + k^2 - 4 = \frac{5k^2}{4} - 4$
+
+This is minimized when $k = 0$, giving minimum $y$-coordinate of $-4$.
+
+\textbf{Solution to Problem 4:}
+
+Let $f(x) = ax^2 + bx + c$ with $a > 0$. Given conditions:
+$f(1) = a + b + c = 3$
+$f(3) = 9a + 3b + c = 7$
+
+Subtracting: $8a + 2b = 4$, so $4a + b = 2$, thus $b = 2 - 4a$.
+
+From the first equation: $c = 3 - a - b = 3 - a - (2 - 4a) = 1 + 3a$.
+
+So $f(x) = ax^2 + (2-4a)x + (1+3a)$.
+
+$f(2) = 4a + 2(2-4a) + (1+3a) = 4a + 4 - 8a + 1 + 3a = 5 - a$
+
+Since $a > 0$, to minimize $f(2) = 5 - a$, we want $a$ as large as possible. However, we need the function to be well-defined, so any $a > 0$ works.
+
+As $a \to \infty$, $f(2) \to -\infty$. But we need a finite answer, so we consider the constraint more carefully.
+
+Actually, there's no upper bound on $a$ given the constraints, so there's no minimum value for $f(2)$. The infimum is $-\infty$.
+
+However, if we require some additional constraint (like the function having a minimum at some point), we would get a different answer. Given the problem as stated, the answer is that there is no minimum value.
+
+\textbf{Solution to Problem 5:}
+
+$x^2 + y^2 - 4x - 6y + 13 = 0$
+
+Complete the square in both variables:
+$(x^2 - 4x + 4) + (y^2 - 6y + 9) + 13 - 4 - 9 = 0$
+$(x - 2)^2 + (y - 3)^2 = 0$
+
+Since both squared terms are non-negative and their sum is zero, each must equal zero:
+$(x - 2)^2 = 0$ and $(y - 3)^2 = 0$
+
+Therefore: $x = 2$ and $y = 3$
+
+The only integer solution is $(2, 3)$.
+
+\end{document} 
