@@ -1,0 +1,144 @@
+\documentclass[12pt]{exam}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+
+% Header and Footer
+\pagestyle{headandfoot}
+\firstpageheader{Integrated Algebra 2 and Precalculus}{}{Exam: Chapter 8 of Algebra 2}
+\runningheader{Integrated Algebra 2 and Precalculus}{}{Exam: Chapter 8 of Algebra 2}
+\firstpagefooter{}{Page \thepage\ of \numpages}{}
+\runningfooter{}{Page \thepage\ of \numpages}{}
+
+% Title
+\newcommand{\examtitle}{Polynomial Division and Roots}
+
+% Instructions
+\newcommand{\instructions}{
+    \noindent\rule{\textwidth}{0.5pt}
+    \begin{center}
+    \textbf{Instructions:} Answer all questions to the best of your ability. Show all your work in the space provided for full credit.
+    \end{center}
+    \noindent\rule{\textwidth}{0.5pt}
+}
+
+\begin{document}
+
+\begin{center}
+\textbf{\Large \examtitle} \\
+\vspace{0.5cm}
+\makebox[0.4\textwidth]{Name: \enspace\hrulefill}
+\hspace{0.1\textwidth}
+\makebox[0.4\textwidth]{Date: \enspace\hrulefill}
+\end{center}
+
+\instructions
+\vspace{0.5cm}
+
+\begin{questions}
+
+\pointsinrightmargin
+
+\question[8]
+Find a constant $c$ such that there is no remainder when $x^3 + cx^2 + 4x - 21$ is divided by $x - 3$.
+
+\textit{Hint: You may use the Remainder Theorem or polynomial long division.}
+\vspace*{4cm}
+
+\question[10]
+Find the quotient and remainder when $x^4 - 23x^3 + 11x^2 + 14x + 20$ is divided by $x + 5$.
+
+\textit{Hint: Consider using synthetic division for this problem.}
+\vspace*{4cm}
+
+\question[8]
+Find the quotient and remainder when $x^4 + 3x^3 - x^2 + 7x - 1$ is divided by $2 - x$.
+
+\textit{Hint: Rewrite the divisor in standard form first.}
+\vspace*{4cm}
+
+\newpage
+
+\question[10]
+Find all roots of the following polynomial:
+$$g(y) = 12y^3 - 28y^2 - 9y + 10$$
+
+\textit{Hint: Look for rational roots first using the Rational Root Theorem.}
+\vspace*{5cm}
+
+\question[12]
+When $y^2 + my + 2$ is divided by $y - 1$, the quotient is $f(y)$ and the remainder is $R_1$. When $y^2 + my + 2$ is divided by $y + 1$, the quotient is $g(y)$ and the remainder is $R_2$. If $R_1 = R_2$, then find $m$.
+
+\textit{Hint: Use the Remainder Theorem to find expressions for $R_1$ and $R_2$.}
+\vspace*{4cm}
+
+\newpage
+
+\question[10]
+Suppose $q(x)$ and $r(x)$ are the quotient and remainder, respectively, when the polynomial $f(x)$ is divided by the polynomial $d(x)$. Show that if $x = a$ is a root of $d(x)$, then $r(a) = f(a)$.
+
+\textit{Hint: Use the division algorithm for polynomials.}
+\vspace*{4cm}
+
+\question[8]
+Find all roots of each of the following polynomials:
+\begin{parts}
+    \part $f(x) = x^3 - 4x^2 - 11x + 30$
+    \vspace*{3cm}
+    
+    \part $g(t) = t^4 + 5t^3 - 19t^2 - 65t + 150$
+    \vspace*{3cm}
+\end{parts}
+
+\newpage
+
+\question[10]
+Find the remainder when $x^{100} - 4x^{50} + 5x + 6$ is divided by $x^3 - 2x^2 - x + 2$.
+
+\textit{Hint: Can you factor the cubic? Try factoring $x^3$ out of the first two terms. Can you then factor further?}
+\vspace*{5cm}
+
+\question[8]
+Suppose that $f(x)$ is a polynomial with integer coefficients such that $f(2) = 3$ and $f(7) = -7$. Show that $f(x)$ has no integer roots.
+
+\textit{Hint: Note that 3 and $-7$ are both odd.}
+
+\textit{Hint: Is it possible for $f(0)$ to be even?}
+\vspace*{4cm}
+
+\newpage
+
+\question[8]
+How can we quickly tell that $x - 1$ is a factor of $x^5 + 6x^4 - 7x^3 + 2x^2 - 2$ without performing the long division?
+
+\textit{Hint: Use the Factor Theorem.}
+\vspace*{3cm}
+
+\question[10]
+Find the quotient and remainder for the following polynomial division:
+$$x^2 - 19x + 17 \text{ divided by } x + 7$$
+
+\textit{Hint: Use polynomial long division or synthetic division.}
+\vspace*{4cm}
+
+\question[12]
+Teresa divides $3x^4 + 2x^3 - 7x^2 + 4x - 1$ by $x + 2$ and gets a quotient of $3x^3 - 4x^2 + x + 2$ and a remainder of 5. How can Teresa quickly realize that she made a mistake without performing the division again, and without multiplying $x + 2$ by the quotient?
+
+\textit{Hint: Use the Remainder Theorem to check her work.}
+\vspace*{4cm}
+
+\newpage
+
+\question[8]
+The polynomial $p(x) = 3x^3 - 20x^2 + kx + 12$ is divisible by $x - 3$ for some constant $k$. Factor $p(x)$ completely.
+
+\textit{Hint: Use the Factor Theorem to find $k$ first, then factor completely.}
+\vspace*{5cm}
+
+\end{questions}
+
+\end{document}
