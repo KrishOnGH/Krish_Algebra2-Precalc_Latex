@@ -1,0 +1,213 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+
+% Page setup
+\geometry{margin=1in}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Integrated Algebra 2 and Precalculus}
+\fancyhead[R]{Assignment: Chapter 8 of Algebra 2}
+\fancyfoot[C]{Page \thepage}
+
+\begin{document}
+
+\begin{center}
+\textbf{\Large The Euclidean Algorithm: From Integers to Polynomials} \\
+\vspace{0.5cm}
+\makebox[0.4\textwidth]{Name: \enspace\hrulefill}
+\hspace{0.1\textwidth}
+\makebox[0.4\textwidth]{Date: \enspace\hrulefill}
+\end{center}
+
+\vspace{0.5cm}
+
+\section{Introduction}
+
+The Euclidean algorithm, dating back to ancient Greece (around 300 BCE), is one of the oldest and most elegant algorithms in mathematics. Named after the mathematician Euclid, this algorithm provides an efficient method for finding the greatest common divisor (GCD) of two integers. 
+
+What makes this algorithm truly remarkable is its universality—the same fundamental principles that work for integers can be extended to polynomials, allowing us to find the greatest common divisor of polynomial expressions. This connection demonstrates the beautiful unity of mathematical structures across different domains.
+
+\section{The Euclidean Algorithm for Integers}
+
+\subsection{Essential Definitions}
+
+Before diving into the algorithm, let's establish our foundational concepts:
+
+\textbf{Definition (Divisibility):} For integers $a$ and $b$ with $b \neq 0$, we say that $b$ \textbf{divides} $a$ (written $b \mid a$) if there exists an integer $k$ such that $a = bk$.
+
+\textbf{Example:} $3 \mid 12$ because $12 = 3 \cdot 4$.
+
+\textbf{Definition (Greatest Common Divisor):} The \textbf{greatest common divisor} of two integers $a$ and $b$ (not both zero), denoted $\gcd(a, b)$, is the largest positive integer that divides both $a$ and $b$.
+
+\textbf{Example:} $\gcd(12, 18) = 6$ because $6$ is the largest integer that divides both $12$ and $18$.
+
+\textbf{Definition (Division Algorithm):} For any integers $a$ and $b$ with $b > 0$, there exist unique integers $q$ (quotient) and $r$ (remainder) such that:
+$$a = bq + r \quad \text{where } 0 \leq r < b$$
+
+This is the foundation of "long division" and is crucial for understanding the Euclidean algorithm.
+
+\subsection{The Euclidean Algorithm Procedure}
+
+The Euclidean algorithm repeatedly applies the division algorithm:
+
+\textbf{Algorithm:} To find $\gcd(a, b)$ where $a \geq b > 0$:
+
+\begin{enumerate}
+\item Apply the division algorithm: $a = bq_1 + r_1$ where $0 \leq r_1 < b$
+\item If $r_1 = 0$, then $\gcd(a, b) = b$
+\item Otherwise, apply the division algorithm to $b$ and $r_1$: $b = r_1 q_2 + r_2$ where $0 \leq r_2 < r_1$
+\item Continue this process until the remainder is $0$
+\item The last non-zero remainder is $\gcd(a, b)$
+\end{enumerate}
+
+\subsection{Example: Finding $\gcd(252, 105)$}
+
+Let's trace through the algorithm step by step:
+
+\begin{align}
+252 &= 105 \cdot 2 + 42 \\
+105 &= 42 \cdot 2 + 21 \\
+42 &= 21 \cdot 2 + 0
+\end{align}
+
+Since the remainder is now $0$, we have $\gcd(252, 105) = 21$.
+
+\textbf{Verification:} $252 = 21 \cdot 12$ and $105 = 21 \cdot 5$, and $\gcd(12, 5) = 1$, confirming our answer.
+
+\subsection{Key Properties}
+
+\textbf{Property 1:} $\gcd(a, b) = \gcd(b, a \bmod b)$
+
+This is why the algorithm works—the GCD doesn't change as we perform the division steps.
+
+\textbf{Property 2 (Bézout's Identity):} For any integers $a$ and $b$, there exist integers $x$ and $y$ such that:
+$$\gcd(a, b) = ax + by$$
+
+The Euclidean algorithm can be extended (called the Extended Euclidean Algorithm) to find these coefficients.
+
+\section{The Euclidean Algorithm for Polynomials}
+
+\subsection{Polynomial Division Algorithm}
+
+Just as integers have a division algorithm, so do polynomials:
+
+\textbf{Polynomial Division Algorithm:} For polynomials $f(x)$ and $g(x)$ with $g(x) \neq 0$, there exist unique polynomials $q(x)$ (quotient) and $r(x)$ (remainder) such that:
+$$f(x) = g(x) \cdot q(x) + r(x)$$
+where either $r(x) = 0$ or $\deg(r) < \deg(g)$.
+
+\textbf{Note:} This is exactly polynomial long division that you've learned before!
+
+\subsection{Greatest Common Divisor of Polynomials}
+
+\textbf{Definition:} The \textbf{greatest common divisor} of two polynomials $f(x)$ and $g(x)$ (not both zero) is the monic polynomial of highest degree that divides both $f(x)$ and $g(x)$.
+
+\textbf{Note:} We choose the monic polynomial (leading coefficient = 1) to ensure uniqueness.
+
+\subsection{Euclidean Algorithm for Polynomials}
+
+The algorithm is identical to the integer case:
+
+\textbf{Algorithm:} To find $\gcd(f(x), g(x))$ where $\deg(f) \geq \deg(g)$ and $g(x) \neq 0$:
+
+\begin{enumerate}
+\item Divide $f(x)$ by $g(x)$: $f(x) = g(x) \cdot q_1(x) + r_1(x)$ where $\deg(r_1) < \deg(g)$ or $r_1 = 0$
+\item If $r_1(x) = 0$, then $\gcd(f(x), g(x)) = g(x)$ (made monic)
+\item Otherwise, divide $g(x)$ by $r_1(x)$: $g(x) = r_1(x) \cdot q_2(x) + r_2(x)$
+\item Continue until the remainder is $0$
+\item The last non-zero remainder (made monic) is $\gcd(f(x), g(x))$
+\end{enumerate}
+
+\subsection{Example: Finding $\gcd(x^4 - 1, x^3 - 1)$}
+
+Step 1: Divide $x^4 - 1$ by $x^3 - 1$
+$$x^4 - 1 = (x^3 - 1) \cdot x + (x - 1)$$
+
+Step 2: Divide $x^3 - 1$ by $x - 1$
+$$x^3 - 1 = (x - 1) \cdot (x^2 + x + 1) + 0$$
+
+Since the remainder is $0$, we have $\gcd(x^4 - 1, x^3 - 1) = x - 1$.
+
+\textbf{Verification:} $x^4 - 1 = (x-1)(x^3 + x^2 + x + 1)$ and $x^3 - 1 = (x-1)(x^2 + x + 1)$.
+
+\newpage
+
+\section{Practice Problems}
+
+\textbf{Part A: Euclidean Algorithm for Integers}
+
+\textbf{1.} Use the Euclidean algorithm to find the following greatest common divisors:
+
+\begin{enumerate}
+\item[(a)] $\gcd(84, 36)$
+\vspace{3cm}
+
+\item[(b)] $\gcd(123, 45)$
+\vspace{3cm}
+
+\item[(c)] $\gcd(1001, 143)$
+\vspace{3cm}
+\end{enumerate}
+
+\textbf{2.} For the calculation $\gcd(84, 36)$ from problem 1(a), verify your answer by factoring both numbers into their prime factorizations and finding the GCD using the prime factorization method.
+\vspace{3cm}
+
+\textbf{3.} Use the Extended Euclidean Algorithm to find integers $x$ and $y$ such that $\gcd(123, 45) = 123x + 45y$.
+
+\textit{Hint: Work backwards through your calculation from problem 1(b).}
+\vspace{4cm}
+
+\newpage
+
+\textbf{Part B: Polynomial Division Review}
+
+\textbf{4.} Perform the following polynomial divisions and express in the form $f(x) = g(x) \cdot q(x) + r(x)$:
+
+\begin{enumerate}
+\item[(a)] Divide $x^3 + 2x^2 - x + 3$ by $x^2 + 1$
+\vspace{4cm}
+
+\item[(b)] Divide $2x^4 - x^3 + 3x - 5$ by $x^2 - 2x + 1$
+\vspace{4cm}
+\end{enumerate}
+
+\textbf{Part C: Euclidean Algorithm for Polynomials}
+
+\textbf{5.} Use the Euclidean algorithm to find the greatest common divisor of the following polynomial pairs:
+
+\begin{enumerate}
+\item[(a)] $\gcd(x^3 + x^2 - x - 1, x^2 + 2x + 1)$
+\vspace{5cm}
+
+\item[(b)] $\gcd(x^4 + x^3 - 3x^2 - 4x - 1, x^3 + x^2 - x - 1)$
+\vspace{6cm}
+\end{enumerate}
+
+\newpage
+
+\textbf{6.} Consider the polynomials $f(x) = x^3 - 6x^2 + 11x - 6$ and $g(x) = x^2 - 4x + 3$.
+
+\begin{enumerate}
+\item[(a)] Factor both polynomials completely.
+\vspace{3cm}
+
+\item[(b)] Use the factorizations to find $\gcd(f(x), g(x))$.
+\vspace{2cm}
+
+\item[(c)] Verify your answer by using the Euclidean algorithm.
+\vspace{4cm}
+\end{enumerate}
+
+\textbf{7.} Prove that for polynomials $f(x)$ and $g(x)$ with $g(x) \neq 0$:
+$$\gcd(f(x), g(x)) = \gcd(g(x), r(x))$$
+where $r(x)$ is the remainder when $f(x)$ is divided by $g(x)$.
+
+\textit{This is the fundamental property that makes the Euclidean algorithm work for polynomials.}
+\vspace{5cm}
+
+\end{document}
