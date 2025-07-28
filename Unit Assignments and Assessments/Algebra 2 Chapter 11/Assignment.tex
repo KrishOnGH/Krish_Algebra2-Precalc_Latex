@@ -179,11 +179,13 @@ We need to prove $P(n+1)$:
 \begin{align}
 \sum_{k=1}^{n+1} [a + (k-1)d] &= \sum_{k=1}^{n} [a + (k-1)d] + [a + nd] \\
 &= \frac{n}{2}[2a + (n-1)d] + a + nd \\
-&= \frac{n[2a + (n-1)d] + 2(a + nd)}{2} \\
+&= \frac{n(2a + (n-1)d) + 2(a + nd)}{2} \\
 &= \frac{2an + n(n-1)d + 2a + 2nd}{2} \\
-&= \frac{2a(n+1) + nd(n-1+2)}{2} \\
+&= \frac{2a(n+1) + d(n(n-1) + 2n)}{2} \\
+&= \frac{2a(n+1) + d(n^2-n+2n)}{2} \\
+&= \frac{2a(n+1) + d(n^2+n)}{2} \\
 &= \frac{2a(n+1) + nd(n+1)}{2} \\
-&= \frac{(n+1)[2a + nd]}{2}
+&= \frac{(n+1)(2a + nd)}{2}
 \end{align}
 
 Since $nd = ((n+1)-1)d$, this equals $\frac{n+1}{2}[2a + ((n+1)-1)d]$, proving $P(n+1)$.
@@ -292,7 +294,7 @@ $$1 + 4 + 7 + \cdots + (3n-2) = \frac{n(3n-1)}{2}$$
 \item[(a)] Write the explicit formula for $a_n$.
 \vspace{2cm}
 
-\item[(b)] Use induction to prove that $S_n = \frac{n(6 + 3n)}{2}$ (sum of first $n$ terms).
+\item[(b)] Use induction to prove that $S_n = \frac{n(7 + 3n)}{2}$ (sum of first $n$ terms).
 \vspace{4cm}
 \end{enumerate}
 
