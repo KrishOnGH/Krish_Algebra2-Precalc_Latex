@@ -1,0 +1,487 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+\usepackage{amsthm}
+\usetikzlibrary{matrix}
+
+% Page setup
+\geometry{margin=1in}
+\setlength{\headheight}{15pt}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Integrated Algebra 2 and Precalculus}
+\fancyhead[R]{Assignment: Chapter 10 of Algebra 2}
+\fancyfoot[C]{Page \thepage}
+
+% Theorem environments
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{example}{Example}
+
+\begin{document}
+
+\begin{center}
+\textbf{\Large Functions: A More Rigorous Foundation for Exponential and Logarithmic Relationships} \\
+\vspace{0.5cm}
+\makebox[0.4\textwidth]{Name: \underline{Krish Arora \hspace{3.5cm}} \enspace}
+\hspace{0.1\textwidth}
+\makebox[0.4\textwidth]{Date: \underline{7/26/25 \hspace{3.5cm}} \enspace}
+\end{center}
+
+\vspace{0.5cm}
+
+\section{Introduction}
+
+When we work with exponential and logarithmic functions, we're dealing with some of the most fundamental mathematical relationships. But what exactly \textit{is} a function? Are equations the same as functions? What makes an operation "binary" versus "unary"? 
+
+These questions get to the heart of mathematical rigor. Understanding functions as mathematical objects—rather than just formulas—will deepen your comprehension of why exponential and logarithmic relationships work the way they do, and how concepts like function composition and inverses connect to the properties of exponents and logarithms.
+
+In this assignment, we'll build a solid foundation by defining functions precisely, exploring different types of mathematical operations, and then seeing how these abstract concepts illuminate the concrete relationships you've been studying.
+
+\section{What Is a Function? A Rigorous Definition}
+
+\begin{definition}
+A \textbf{function} $f$ from a set $A$ to a set $B$ (denoted $f: A \to B$) is a rule that assigns to each element $x \in A$ exactly one element $f(x) \in B$.
+
+The set $A$ is called the \textbf{domain} of $f$.
+The set $B$ is called the \textbf{codomain} of $f$.
+The set $\{f(x) : x \in A\}$ is called the \textbf{range} (or image) of $f$.
+\end{definition}
+
+This definition is more precise than saying "a function is a formula." A function is fundamentally about \textit{correspondence}—each input gets paired with exactly one output.
+
+\subsection{Functions vs. Equations}
+
+\textbf{Are equations functions?} This is a subtle but important question.
+
+An equation like $x^2 + y^2 = 25$ describes a \textit{relationship} between variables, but it's not a function from $x$ to $y$ because for most values of $x$, there are two corresponding $y$ values. For instance, when $x = 3$, we have $y = \pm 4$.
+
+However, we can use equations to \textit{define} functions:
+\begin{itemize}
+\item The equation $y = 2^x$ defines a function $f(x) = 2^x$
+\item The equation $y = \log_2 x$ defines a function $g(x) = \log_2 x$
+\item The equation $x^2 + y^2 = 25$ defines a relation, but we can extract functions like $f(x) = \sqrt{25 - x^2}$ (upper semicircle)
+\end{itemize}
+
+\subsection{The Vertical Line Test}
+
+The \textbf{vertical line test} provides a visual way to determine if a graph represents a function: if any vertical line intersects the graph more than once, then the graph does not represent a function.
+
+\section{Operations: Unary, Binary, and Beyond}
+
+\begin{definition}
+An \textbf{operation} is a rule that takes one or more inputs and produces an output.
+
+\begin{itemize}
+\item A \textbf{unary operation} takes one input (e.g., $f(x) = -x$, $f(x) = \sqrt{x}$, $f(x) = \log x$)
+\item A \textbf{binary operation} takes two inputs (e.g., addition: $(x,y) \mapsto x + y$, exponentiation: $(x,y) \mapsto x^y$)
+\item An \textbf{$n$-ary operation} takes $n$ inputs
+\end{itemize}
+\end{definition}
+
+\subsection{Examples in Our Context}
+
+\textbf{Unary Operations:}
+\begin{itemize}
+\item $f(x) = 2^x$ (exponential with base 2)
+\item $f(x) = \log_3 x$ (logarithm with base 3)
+\item $f(x) = x^{-1} = \frac{1}{x}$ (reciprocal)
+\end{itemize}
+
+\textbf{Binary Operations:}
+\begin{itemize}
+\item $(a,b) \mapsto a^b$ (general exponentiation)
+\item $(a,x) \mapsto \log_a x$ (logarithm with variable base)
+\item $(x,y) \mapsto x + y$ (addition)
+\end{itemize}
+
+\textbf{What about equations?} Equations like $2^x = 8$ are not operations—they're \textit{statements} that may be true or false for given values of variables. However, the process of "solving an equation" can be thought of as applying a sequence of operations (both unary and binary) to isolate the variable.
+
+\section{Function Composition: Building Complex from Simple}
+
+\begin{definition}
+Let $f: A \to B$ and $g: B \to C$ be functions. The \textbf{composition} of $g$ and $f$, denoted $g \circ f$, is the function defined by:
+$$(g \circ f)(x) = g(f(x))$$
+for all $x \in A$.
+\end{definition}
+
+\subsection{Why Composition Matters for Exponentials and Logarithms}
+
+Many complex exponential and logarithmic expressions are actually compositions:
+
+\begin{example}
+Consider $f(x) = \log(2^x + 1)$.
+
+This is the composition of:
+\begin{itemize}
+\item $h(x) = 2^x + 1$ (exponential plus constant)
+\item $g(u) = \log u$ (logarithm)
+\end{itemize}
+
+So $f(x) = g(h(x)) = (g \circ h)(x)$.
+\end{example}
+
+\begin{example}
+The expression $2^{\log_3(x+1)}$ is the composition:
+\begin{itemize}
+\item $h(x) = x + 1$
+\item $k(u) = \log_3 u$  
+\item $j(v) = 2^v$
+\end{itemize}
+
+So our function is $j(k(h(x))) = (j \circ k \circ h)(x)$.
+\end{example}
+
+\section{Function Inverses: Undoing Operations}
+
+\begin{definition}
+Let $f: A \to B$ be a function. A function $g: B \to A$ is called the \textbf{inverse} of $f$ if:
+\begin{align}
+g(f(x)) &= x \text{ for all } x \in A \\
+f(g(y)) &= y \text{ for all } y \in B
+\end{align}
+
+If such a function $g$ exists, we say $f$ is \textbf{invertible} and write $g = f^{-1}$.
+\end{definition}
+
+\subsection{When Do Inverses Exist?}
+
+\begin{theorem}
+A function $f: A \to B$ has an inverse if and only if $f$ is \textbf{bijective}, meaning:
+\begin{itemize}
+\item \textbf{Injective} (one-to-one): If $f(x_1) = f(x_2)$, then $x_1 = x_2$
+\item \textbf{Surjective} (onto): For every $y \in B$, there exists $x \in A$ such that $f(x) = y$
+\end{itemize}
+\end{theorem}
+
+\subsection{The Exponential-Logarithm Inverse Relationship}
+
+This abstract theory explains the fundamental relationship between exponentials and logarithms:
+
+\begin{theorem}
+For $a > 0, a \neq 1$:
+\begin{itemize}
+\item The exponential function $f(x) = a^x$ with domain $\mathbb{R}$ and codomain $(0,\infty)$ is bijective
+\item Its inverse is the logarithmic function $f^{-1}(x) = \log_a x$ with domain $(0,\infty)$ and codomain $\mathbb{R}$
+\end{itemize}
+
+This gives us the fundamental inverse relationships:
+\begin{align}
+\log_a(a^x) &= x \text{ for all } x \in \mathbb{R} \\
+a^{\log_a y} &= y \text{ for all } y > 0
+\end{align}
+\end{theorem}
+
+\section{Proofs and Examples}
+
+\subsection{Proof: Properties of Logarithms from Inverse Relationship}
+
+\begin{theorem}
+For $a > 0, a \neq 1$ and $x, y > 0$:
+$$\log_a(xy) = \log_a x + \log_a y$$
+\end{theorem}
+
+\begin{proof}
+Let $u = \log_a x$ and $v = \log_a y$. By definition of logarithm:
+\begin{align}
+a^u &= x \\
+a^v &= y
+\end{align}
+
+Therefore:
+\begin{align}
+xy &= a^u \cdot a^v \\
+&= a^{u+v} \quad \text{(by properties of exponents)}
+\end{align}
+
+Taking $\log_a$ of both sides:
+$$\log_a(xy) = u + v = \log_a x + \log_a y$$
+\end{proof}
+
+\subsection{Example: Composition and Change of Base}
+
+\begin{example}
+Prove that $\log_a x = \frac{\log_b x}{\log_b a}$ for any valid bases $a$ and $b$.
+
+\textbf{Solution:} Let $y = \log_a x$. Then $a^y = x$.
+
+Taking $\log_b$ of both sides:
+\begin{align}
+\log_b(a^y) &= \log_b x \\
+y \log_b a &= \log_b x \quad \text{(by logarithm properties)} \\
+y &= \frac{\log_b x}{\log_b a}
+\end{align}
+
+Since $y = \log_a x$, we have $\log_a x = \frac{\log_b x}{\log_b a}$.
+\end{example}
+
+\section{Connection to Exponential and Logarithmic Functions}
+
+Now we can see how our rigorous understanding illuminates exponential and logarithmic relationships:
+
+\subsection{Exponential Functions as Compositions}
+
+Complex exponential expressions often involve composition:
+\begin{itemize}
+\item $f(x) = 3^{2x+1}$ is the composition of $g(x) = 2x + 1$ and $h(u) = 3^u$
+\item $f(x) = e^{-x^2}$ is the composition of $g(x) = -x^2$ and $h(u) = e^u$
+\end{itemize}
+
+\subsection{Logarithmic Functions and Inverse Operations}
+
+Understanding inverses helps us solve exponential equations:
+\begin{itemize}
+\item To solve $2^x = 8$, we apply $\log_2$ to both sides: $x = \log_2 8 = 3$
+\item To solve $\log_3 x = 4$, we apply the exponential function: $x = 3^4 = 81$
+\end{itemize}
+
+\subsection{Function Composition in Solving Complex Equations}
+
+Consider solving $\log(2^x - 1) = 2$:
+
+\textbf{Step 1:} Apply the inverse of $\log$ (which is $10^x$):
+$$2^x - 1 = 10^2 = 100$$
+
+\textbf{Step 2:} Solve for the exponential:
+$$2^x = 101$$
+
+\textbf{Step 3:} Apply $\log_2$:
+$$x = \log_2 101$$
+
+Each step involves applying an inverse function to "undo" the composition.
+
+\newpage
+
+\section{Practice Problems}
+
+\textbf{Part A: Function Concepts}
+
+\textbf{1.} For each of the following, determine whether it represents a function from $\mathbb{R}$ to $\mathbb{R}$. If not, explain why.
+
+\begin{enumerate}
+\item[(a)] $y^2 = x$
+\\[8pt]
+\begin{minipage}[t][2cm][t]{\linewidth}
+    $\displaystyle y^2=x \Rightarrow y=\pm \sqrt{x}$
+    \\[8pt] Since there are two values for any $x \in [0, \infty)$, this is not a function.
+\end{minipage}
+
+\item[(b)] $y = x^3 - 2x + 1$  
+\\[8pt]
+\begin{minipage}[t][2cm][t]{\linewidth}
+    $\displaystyle$Yes, this has one defined value for any $x \in R$.
+\end{minipage}
+
+\item[(c)] $x^2 + y^2 = 16$
+\\[8pt]
+\begin{minipage}[t][2cm][t]{\linewidth}
+    $\displaystyle x^2+y^2=16 \Rightarrow y=\pm \sqrt{16-x^2}$
+    \\[8pt] Since there are two values for any $x \in [-4, 4]$, this is not a function.
+\end{minipage}
+
+\item[(d)] $y = \sqrt{x}$ (with appropriate domain restriction)
+\\[8pt]
+\begin{minipage}[t][2cm][t]{\linewidth}
+    $\displaystyle$Over a restricted domain: $x \in [0, \infty)$, this is indeed a defined function.
+\end{minipage}
+\end{enumerate}
+
+\textbf{2.} Classify each of the following as a unary operation, binary operation, or neither:
+
+\begin{enumerate}
+\item[(a)] $f(x) = \log_2 x$
+\\[8pt] Unary
+
+\item[(b)] $(x,y) \mapsto x^y$
+\\[8pt] Binary
+
+\item[(c)] The equation $2^x = 16$
+\\[8pt] Neither
+
+\item[(d)] $g(x) = e^{-x}$
+\\[8pt] Unary
+\end{enumerate}
+
+\textbf{Part B: Composition and Inverses}
+
+\textbf{3.} Let $f(x) = 2^x$ and $g(x) = \log_3 x$. Find:
+
+\begin{enumerate}
+\item[(a)] $(f \circ g)(27)$
+\\[8pt]
+\begin{minipage}[t][2cm][t]{\linewidth}
+    $\displaystyle (f \circ g)(27) = f(g(27)) = f(log_3(27)) = f(3) = 2^3 = 8$
+\end{minipage}
+
+\item[(b)] $(g \circ f)(3)$
+\\[8pt]
+\begin{minipage}[t][2cm][t]{\linewidth}
+    $\displaystyle (g \circ f)(3) = g(f(3)) = g(2^3) = g(8) = log_3(8) = \frac{log_{10}(8)}{log_{10}(3)} \approx 1.89$
+\end{minipage}
+
+\item[(c)] Is $(f \circ g)(x) = (g \circ f)(x)$ for all valid $x$? Why or why not?
+\\[8pt]
+\begin{minipage}[t][5cm][t]{\linewidth}
+    $\displaystyle (f \circ g)(x) = (g \circ f)(x) \Rightarrow f(g(x)) = g(f(x)) \Rightarrow 2^{log_3(x)} = log_3(2^x)$
+    \\[8pt] $2^{\frac{log_2(x)}{log_2(3)}} = \frac{log_2(2^x)}{log_2(3)} \Rightarrow (2^{log_2(x)})^{\frac{1}{log_2(3)}} = \frac{x}{log_2(3)} \Rightarrow x^{\frac{1}{log_2(3)}} = \frac{x}{log_2(3)}$
+    \\[8pt] $x^{\frac{1}{log_2(3)}-1} = \frac{1}{log_2(3)} \Rightarrow x = log_2(3)^{\frac{log_2(3)}{log_2(3)-1}} \approx 3.483$
+    \\[8pt] No, the identity does not hold for all valid x, as there is only one non-trivial value of x which satisfies the equation.
+\end{minipage}
+\end{enumerate}
+
+\textbf{4.} Express each function as a composition of simpler functions:
+
+\begin{enumerate}
+\item[(a)] $h(x) = \log(x^2 + 1)$
+\\[8pt]
+\begin{minipage}[t][3cm][t]{\linewidth}
+    $\displaystyle f(x) = log(x) \ ; \ g(x) = x^2+1$
+    \\[8pt] $h(x) = (f \circ g)(x)$
+\end{minipage}
+
+\item[(b)] $k(x) = 3^{\log_2 x}$
+\\[8pt]
+\begin{minipage}[t][3cm][t]{\linewidth}
+    $\displaystyle f(x) = 3^x \ ; \ g(x) = log_2(x)$
+    \\[8pt] $k(x) = (f \circ g)(x)$
+\end{minipage}
+
+\item[(c)] $m(x) = e^{-x^2/2}$
+\\[8pt]
+\begin{minipage}[t][3cm][t]{\linewidth}
+    $\displaystyle f(x) = e^x \ ; \ g(x) = -\frac{x}{2} \ ; \ h(x) = x^2$
+    \\[8pt] $m(x) = (f \circ g \circ h)(x)$
+\end{minipage}
+\end{enumerate}
+
+\textbf{5.} For each function, determine if it has an inverse on the given domain. If so, find the inverse function.
+
+\begin{enumerate}
+\item[(a)] $f(x) = 3^x$ on $\mathbb{R}$
+\\[8pt]
+\begin{minipage}[t][3cm][t]{\linewidth}
+    $\displaystyle$Yes, it is injective and defined completely on $\mathbb{R}$
+\end{minipage}
+
+\item[(b)] $g(x) = x^2$ on $[0, \infty)$
+\\[8pt]
+\begin{minipage}[t][3cm][t]{\linewidth}
+    $\displaystyle$Yes, it is injective and defined completely on $[0, \infty)$
+\end{minipage}
+
+\item[(c)] $h(x) = \log_5(x - 2)$ on $(2, \infty)$
+\\[8pt]
+\begin{minipage}[t][3cm][t]{\linewidth}
+    $\displaystyle$Yes, it is injective and defined completely on $(2, \infty)$
+\end{minipage}
+\end{enumerate}
+
+\newpage
+
+\textbf{Part C: Applications to Exponentials and Logarithms}
+
+\textbf{6.} Use the properties of inverse functions to solve:
+
+\begin{enumerate}
+\item[(a)] $4^{x+1} = 32$
+\\[8pt]
+\begin{minipage}[t][2cm][t]{\linewidth}
+    $\displaystyle log_4(32)=x+1 \Rightarrow x=log_4(32)-1=\frac{3}{2}$
+\end{minipage}
+
+\item[(b)] $\log_3(2x - 1) = 4$
+\\[8pt]
+\begin{minipage}[t][2cm][t]{\linewidth}
+    $\displaystyle 3^4=2x-1 \Rightarrow x=\frac{3^4+1}{2}=41$
+\end{minipage}
+
+\item[(c)] $\log(10^{2x}) = 6$
+\\[8pt]
+\begin{minipage}[t][2cm][t]{\linewidth}
+    $\displaystyle 10^6=10^2x \Rightarrow 2x=6 \Rightarrow x=3$
+\end{minipage}
+\end{enumerate}
+
+\textbf{7.} Prove that if $f(x) = a^x$ (where $a > 0, a \neq 1$), then:
+$$f(x + y) = f(x) \cdot f(y)$$
+
+What does this tell us about the relationship between the operation of addition in the domain and multiplication in the range?
+\\[8pt]
+\begin{minipage}[t][4cm][t]{\linewidth}
+    $\displaystyle f(x+y)=a^{x+y}=a^x+a^y=f(x)+f(y)$
+    \\[8pt] This tells us that an exponential function scales multiplicatively as the input grows additively.
+\end{minipage}
+
+\textbf{8.} Consider the function $f(x) = \log_2(x + 1)$ for $x > -1$.
+
+\begin{enumerate}
+\item[(a)] Find $f^{-1}(x)$.
+\\[8pt]
+\begin{minipage}[t][3cm][t]{\linewidth}
+    $\displaystyle x=log_2(f^{-1}(x)+1) \Rightarrow 2^x=f^{-1}(x)+1 \Rightarrow f^{-1}(x)=2^x-1$
+\end{minipage}
+
+\item[(b)] Verify that $f(f^{-1}(3)) = 3$ and $f^{-1}(f(7)) = 7$.
+\\[8pt]
+\begin{minipage}[t][3cm][t]{\linewidth}
+    $\displaystyle f(f^{-1}(3)) = log_2((2^3-1)+1) = log_2(8) = 3$
+    \\[8pt] $f^{-1}(f(7)) = 2^{log_2(7+1)}-1 = 2^3-1 = 7$
+\end{minipage}
+
+\item[(c)] What is the domain of $f^{-1}$?
+\\[8pt]
+\begin{minipage}[t][3cm][t]{\linewidth}
+    $\displaystyle x \in \mathbb{R}$
+\end{minipage}
+\end{enumerate}
+
+\textbf{9.} Let $f(x) = e^x$ and $g(x) = \ln x$. 
+
+\begin{enumerate}
+\item[(a)] Show that $g \circ f = \text{id}_{\mathbb{R}}$ (the identity function on $\mathbb{R}$).
+\\[8pt]
+\begin{minipage}[t][3cm][t]{\linewidth}
+    $\displaystyle f(x)$ and $g(x)$ are inverses as $log_a(x)$ is defined as the inverse of $a^x$, and thus the composition of inverses, $f(x)$ and $g(x)$ is $h(x)=x$ or equivalently the identity function on $\mathbb{R}$
+\end{minipage}
+
+\item[(b)] Show that $f \circ g = \text{id}_{(0,\infty)}$ (the identity function on $(0,\infty)$).
+\\[8pt]
+\begin{minipage}[t][3cm][t]{\linewidth}
+    $\displaystyle$Since the composition of $f(x)$ and $g(x)$ is $x$, and $g(x)$ is only defined on $(0, \infty)$, the composition is equivalent to the identity function on $(0, \infty)$.
+\end{minipage}
+
+\item[(c)] What does this tell us about the relationship between $f$ and $g$?
+\\[8pt]
+\begin{minipage}[t][2cm][t]{\linewidth}
+    $\displaystyle$They are inverses.
+\end{minipage}
+\end{enumerate}
+
+\textbf{10.} \textbf{Challenge Problem:} Consider the equation $x^x = 2$. 
+
+\begin{enumerate}
+\item[(a)] Explain why this equation cannot be easily solved using basic inverse operations.
+\\[8pt]
+\begin{minipage}[t][3cm][t]{\linewidth}
+    $\displaystyle$The Lambert $W$ function.
+\end{minipage}
+
+\item[(b)] Take the natural logarithm of both sides and analyze what type of equation results.
+\\[8pt]
+\begin{minipage}[t][3cm][t]{\linewidth}
+    $\displaystyle ln(x^x)=ln(2)$
+\end{minipage}
+
+\item[(c)] Research: What is the name of the special function that would be needed to solve this type of equation?
+\\[8pt]
+\begin{minipage}[t][3cm][t]{\linewidth}
+    $\displaystyle$The Lambert $W$ function.
+\end{minipage}
+\end{enumerate}
+
+\end{document}
