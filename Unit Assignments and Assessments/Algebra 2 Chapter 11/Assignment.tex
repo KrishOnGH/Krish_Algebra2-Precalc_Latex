@@ -1,0 +1,348 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+\usepackage{amsthm}
+\usetikzlibrary{matrix}
+
+% Page setup
+\geometry{margin=1in}
+\setlength{\headheight}{15pt}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Integrated Algebra 2 and Precalculus}
+\fancyhead[R]{Assignment: Chapter 11 of Algebra 2}
+\fancyfoot[C]{Page \thepage}
+
+% Theorem environments
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{example}{Example}
+\newtheorem{lemma}{Lemma}
+
+\begin{document}
+
+\begin{center}
+\textbf{\Large Mathematical Induction: Proving Series Formulas and Sequence Properties} \\
+\vspace{0.5cm}
+\makebox[0.4\textwidth]{Name: \enspace\hrulefill}
+\hspace{0.1\textwidth}
+\makebox[0.4\textwidth]{Date: \enspace\hrulefill}
+\end{center}
+
+\vspace{0.5cm}
+
+\section{Introduction}
+
+When we work with sequences and series, we often encounter patterns that seem to hold for all positive integers. For instance, you might notice that the sum of the first $n$ positive integers appears to be $\frac{n(n+1)}{2}$, or that the sum of a geometric series follows a specific formula. But how can we \textit{prove} that these patterns hold for \textit{every} positive integer, not just the few cases we've checked?
+
+This is where \textbf{mathematical induction} becomes indispensable. Induction is a powerful proof technique that allows us to establish the truth of infinitely many statements—one for each positive integer—using just two logical steps. It's the mathematical equivalent of setting up dominoes: if we can prove the first domino falls, and that each falling domino causes the next one to fall, then we know all the dominoes will fall.
+
+In this assignment, we'll explore mathematical induction as both a proof technique and a way of thinking about sequences and series. We'll use induction to rigorously prove the explicit formulas for arithmetic and geometric series, explore properties of sequences, and understand why these patterns hold universally.
+
+\section{Mathematical Induction: The Foundation}
+
+\begin{definition}
+\textbf{Mathematical Induction} is a method of proof used to establish that a statement $P(n)$ is true for all positive integers $n \geq n_0$ (where $n_0$ is some starting value, often 1).
+
+The principle consists of two steps:
+\begin{enumerate}
+\item \textbf{Base Case:} Prove that $P(n_0)$ is true.
+\item \textbf{Inductive Step:} Prove that if $P(k)$ is true for some arbitrary positive integer $k \geq n_0$, then $P(k+1)$ is also true.
+\end{enumerate}
+
+If both steps are established, then $P(n)$ is true for all integers $n \geq n_0$.
+\end{definition}
+
+\subsection{Why Does Induction Work?}
+
+The logic behind induction rests on the \textbf{Well-Ordering Principle}: every non-empty set of positive integers has a smallest element.
+
+\begin{theorem}[Principle of Mathematical Induction]
+Let $P(n)$ be a statement involving the positive integer $n$. If:
+\begin{enumerate}
+\item $P(n_0)$ is true, and
+\item For all $k \geq n_0$, $P(k) \Rightarrow P(k+1)$
+\end{enumerate}
+then $P(n)$ is true for all integers $n \geq n_0$.
+\end{theorem}
+
+\begin{proof}[Proof Sketch]
+Suppose the conclusion is false. Then the set $S = \{n \geq n_0 : P(n) \text{ is false}\}$ is non-empty. By the Well-Ordering Principle, $S$ has a smallest element $m$. Since $P(n_0)$ is true, we have $m > n_0$, so $m-1 \geq n_0$. Since $m$ is the smallest element of $S$, we know $P(m-1)$ is true. But then by the inductive step, $P(m)$ must be true, contradicting $m \in S$.
+\end{proof}
+
+\section{Sequences: Building Blocks for Induction}
+
+\begin{definition}
+A \textbf{sequence} is a function whose domain is the set of positive integers (or a subset thereof). We typically denote a sequence as $\{a_n\}_{n=1}^{\infty}$ or simply $\{a_n\}$, where $a_n$ represents the $n$-th term.
+\end{definition}
+
+\subsection{Arithmetic Sequences}
+
+\begin{definition}
+An \textbf{arithmetic sequence} is a sequence where each term after the first is obtained by adding a constant $d$ (called the \textbf{common difference}) to the previous term.
+
+If $\{a_n\}$ is arithmetic with first term $a_1$ and common difference $d$, then:
+$$a_n = a_1 + (n-1)d$$
+\end{definition}
+
+\subsection{Geometric Sequences}
+
+\begin{definition}
+A \textbf{geometric sequence} is a sequence where each term after the first is obtained by multiplying the previous term by a constant $r$ (called the \textbf{common ratio}).
+
+If $\{a_n\}$ is geometric with first term $a_1$ and common ratio $r \neq 0$, then:
+$$a_n = a_1 \cdot r^{n-1}$$
+\end{definition}
+
+\section{Series and Sigma Notation}
+
+\begin{definition}
+A \textbf{series} is the sum of the terms of a sequence. If $\{a_n\}$ is a sequence, then the series is:
+$$\sum_{n=1}^{\infty} a_n = a_1 + a_2 + a_3 + \cdots$$
+
+A \textbf{partial sum} $S_n$ is the sum of the first $n$ terms:
+$$S_n = \sum_{k=1}^{n} a_k = a_1 + a_2 + \cdots + a_n$$
+\end{definition}
+
+\subsection{Sigma Notation Properties}
+
+\begin{theorem}
+For any real numbers $c$ and sequences $\{a_n\}$, $\{b_n\}$:
+\begin{align}
+\sum_{k=1}^{n} c \cdot a_k &= c \sum_{k=1}^{n} a_k \\
+\sum_{k=1}^{n} (a_k + b_k) &= \sum_{k=1}^{n} a_k + \sum_{k=1}^{n} b_k \\
+\sum_{k=1}^{n} c &= nc \quad \text{(sum of constants)}
+\end{align}
+\end{theorem}
+
+\section{Using Induction to Prove Series Formulas}
+
+Now we'll use mathematical induction to prove the fundamental formulas for arithmetic and geometric series.
+
+\subsection{Sum of First $n$ Positive Integers}
+
+\begin{theorem}
+For any positive integer $n$:
+$$\sum_{k=1}^{n} k = \frac{n(n+1)}{2}$$
+\end{theorem}
+
+\begin{proof}
+Let $P(n)$ be the statement: $\sum_{k=1}^{n} k = \frac{n(n+1)}{2}$.
+
+\textbf{Base Case:} For $n = 1$:
+$$\sum_{k=1}^{1} k = 1 \quad \text{and} \quad \frac{1(1+1)}{2} = \frac{2}{2} = 1$$
+So $P(1)$ is true.
+
+\textbf{Inductive Step:} Assume $P(k)$ is true for some positive integer $k$, i.e.,
+$$\sum_{j=1}^{k} j = \frac{k(k+1)}{2}$$
+
+We need to prove $P(k+1)$: $\sum_{j=1}^{k+1} j = \frac{(k+1)(k+2)}{2}$.
+
+Starting with the left side:
+\begin{align}
+\sum_{j=1}^{k+1} j &= \left(\sum_{j=1}^{k} j\right) + (k+1) \\
+&= \frac{k(k+1)}{2} + (k+1) \quad \text{(by inductive hypothesis)} \\
+&= \frac{k(k+1)}{2} + \frac{2(k+1)}{2} \\
+&= \frac{k(k+1) + 2(k+1)}{2} \\
+&= \frac{(k+1)(k+2)}{2}
+\end{align}
+
+Therefore, $P(k+1)$ is true, completing the inductive step.
+
+By mathematical induction, $P(n)$ is true for all positive integers $n$.
+\end{proof}
+
+\subsection{Sum of Arithmetic Series}
+
+\begin{theorem}
+The sum of the first $n$ terms of an arithmetic sequence with first term $a$ and common difference $d$ is:
+$$S_n = \sum_{k=1}^{n} [a + (k-1)d] = \frac{n}{2}[2a + (n-1)d]$$
+\end{theorem}
+
+\begin{proof}
+Let $P(n)$ be the statement: $\sum_{k=1}^{n} [a + (k-1)d] = \frac{n}{2}[2a + (n-1)d]$.
+
+\textbf{Base Case:} For $n = 1$:
+$$\sum_{k=1}^{1} [a + (k-1)d] = a + 0 \cdot d = a$$
+$$\frac{1}{2}[2a + (1-1)d] = \frac{1}{2}[2a] = a$$
+So $P(1)$ is true.
+
+\textbf{Inductive Step:} Assume $P(n)$ is true:
+$$\sum_{k=1}^{n} [a + (k-1)d] = \frac{n}{2}[2a + (n-1)d]$$
+
+We need to prove $P(n+1)$:
+\begin{align}
+\sum_{k=1}^{n+1} [a + (k-1)d] &= \sum_{k=1}^{n} [a + (k-1)d] + [a + nd] \\
+&= \frac{n}{2}[2a + (n-1)d] + a + nd \\
+&= \frac{n[2a + (n-1)d] + 2(a + nd)}{2} \\
+&= \frac{2an + n(n-1)d + 2a + 2nd}{2} \\
+&= \frac{2a(n+1) + nd(n-1+2)}{2} \\
+&= \frac{2a(n+1) + nd(n+1)}{2} \\
+&= \frac{(n+1)[2a + nd]}{2}
+\end{align}
+
+Since $nd = ((n+1)-1)d$, this equals $\frac{n+1}{2}[2a + ((n+1)-1)d]$, proving $P(n+1)$.
+
+By mathematical induction, the formula holds for all positive integers $n$.
+\end{proof}
+
+\subsection{Sum of Geometric Series}
+
+\begin{theorem}
+For a geometric sequence with first term $a$ and common ratio $r \neq 1$:
+$$S_n = \sum_{k=1}^{n} ar^{k-1} = a \cdot \frac{1-r^n}{1-r}$$
+\end{theorem}
+
+\begin{proof}
+Let $P(n)$ be the statement: $\sum_{k=1}^{n} ar^{k-1} = a \cdot \frac{1-r^n}{1-r}$ for $r \neq 1$.
+
+\textbf{Base Case:} For $n = 1$:
+$$\sum_{k=1}^{1} ar^{k-1} = ar^0 = a$$
+$$a \cdot \frac{1-r^1}{1-r} = a \cdot \frac{1-r}{1-r} = a$$
+So $P(1)$ is true.
+
+\textbf{Inductive Step:} Assume $P(n)$ is true:
+$$\sum_{k=1}^{n} ar^{k-1} = a \cdot \frac{1-r^n}{1-r}$$
+
+We need to prove $P(n+1)$:
+\begin{align}
+\sum_{k=1}^{n+1} ar^{k-1} &= \sum_{k=1}^{n} ar^{k-1} + ar^n \\
+&= a \cdot \frac{1-r^n}{1-r} + ar^n \\
+&= \frac{a(1-r^n) + ar^n(1-r)}{1-r} \\
+&= \frac{a(1-r^n) + ar^n - ar^{n+1}}{1-r} \\
+&= \frac{a(1-r^n + r^n - r^{n+1})}{1-r} \\
+&= \frac{a(1-r^{n+1})}{1-r}
+\end{align}
+
+Therefore, $P(n+1)$ is true, completing the inductive step.
+
+By mathematical induction, the formula holds for all positive integers $n$.
+\end{proof}
+
+\section{Strong Induction and Recursive Sequences}
+
+Sometimes we need a stronger form of induction for more complex proofs.
+
+\begin{definition}
+\textbf{Strong Induction} (or Complete Induction) is a variant where the inductive step assumes that $P(j)$ is true for all $j$ with $n_0 \leq j \leq k$, and then proves $P(k+1)$.
+\end{definition}
+
+\begin{example}[Fibonacci Numbers]
+The Fibonacci sequence is defined recursively:
+$$F_1 = 1, \quad F_2 = 1, \quad F_n = F_{n-1} + F_{n-2} \text{ for } n \geq 3$$
+
+We can prove by strong induction that $F_n < 2^n$ for all $n \geq 1$.
+
+\textbf{Base Cases:} $F_1 = 1 < 2^1 = 2$ and $F_2 = 1 < 2^2 = 4$.
+
+\textbf{Inductive Step:} Assume $F_j < 2^j$ for all $1 \leq j \leq k$ where $k \geq 2$. Then:
+$$F_{k+1} = F_k + F_{k-1} < 2^k + 2^{k-1} = 2^{k-1}(2 + 1) = 3 \cdot 2^{k-1} < 4 \cdot 2^{k-1} = 2^{k+1}$$
+
+By strong induction, $F_n < 2^n$ for all $n \geq 1$.
+\end{example}
+
+\section{Applications to Other Mathematical Structures}
+
+\subsection{Binomial Theorem}
+
+\begin{theorem}[Binomial Theorem]
+For any real numbers $x$ and $y$, and any non-negative integer $n$:
+$$(x + y)^n = \sum_{k=0}^{n} \binom{n}{k} x^{n-k} y^k$$
+where $\binom{n}{k} = \frac{n!}{k!(n-k)!}$ is the binomial coefficient.
+\end{theorem}
+
+This theorem can be proved using mathematical induction, establishing the foundation for understanding binomial expansions and Pascal's triangle.
+
+\newpage
+
+\section{Practice Problems}
+
+\textbf{Part A: Basic Induction Proofs}
+
+\textbf{1.} Use mathematical induction to prove each formula:
+
+\begin{enumerate}
+\item[(a)] $\sum_{k=1}^{n} k^2 = \frac{n(n+1)(2n+1)}{6}$
+\vspace{4cm}
+
+\item[(b)] $\sum_{k=1}^{n} k^3 = \left(\frac{n(n+1)}{2}\right)^2$
+\vspace{4cm}
+
+\item[(c)] $\sum_{k=1}^{n} (2k-1) = n^2$ (sum of first $n$ odd numbers)
+\vspace{4cm}
+\end{enumerate}
+
+\textbf{2.} Prove by induction that for all positive integers $n$:
+$$1 + 4 + 7 + \cdots + (3n-2) = \frac{n(3n-1)}{2}$$
+\vspace{5cm}
+
+\textbf{3.} Use induction to prove that $n! > 2^n$ for all integers $n \geq 4$.
+\vspace{5cm}
+
+\textbf{Part B: Series and Sequences}
+
+\textbf{4.} Consider the arithmetic sequence with $a_1 = 5$ and $d = 3$.
+
+\begin{enumerate}
+\item[(a)] Write the explicit formula for $a_n$.
+\vspace{2cm}
+
+\item[(b)] Use induction to prove that $S_n = \frac{n(6 + 3n)}{2}$ (sum of first $n$ terms).
+\vspace{4cm}
+\end{enumerate}
+
+\textbf{5.} For the geometric sequence with $a_1 = 2$ and $r = 3$:
+
+\begin{enumerate}
+\item[(a)] Find an explicit formula for the $n$-th term.
+\vspace{2cm}
+
+\item[(b)] Prove by induction that $S_n = 3^n - 1$.
+\vspace{4cm}
+\end{enumerate}
+
+\textbf{6.} Prove that for any positive integer $n$:
+$$\sum_{k=1}^{n} \frac{1}{k(k+1)} = \frac{n}{n+1}$$
+
+\textit{Hint:} Use partial fractions to show that $\frac{1}{k(k+1)} = \frac{1}{k} - \frac{1}{k+1}$.
+\vspace{5cm}
+
+\textbf{Part C: Advanced Applications}
+
+\textbf{7.} \textbf{Strong Induction:} Prove that every integer $n \geq 2$ can be written as a product of prime numbers. (This establishes the existence part of the Fundamental Theorem of Arithmetic.)
+\vspace{5cm}
+
+\textbf{8.} Consider the sequence defined by:
+$$a_1 = 1, \quad a_2 = 3, \quad a_n = 3a_{n-1} - 2a_{n-2} \text{ for } n \geq 3$$
+
+\begin{enumerate}
+\item[(a)] Calculate the first 6 terms of this sequence.
+\vspace{3cm}
+
+\item[(b)] Conjecture a formula for $a_n$ and prove it by strong induction.
+\vspace{5cm}
+\end{enumerate}
+
+\textbf{9.} Prove by induction that for $r \neq 1$:
+$$\sum_{k=0}^{n} kr^k = \frac{r(1-(n+1)r^n+nr^{n+1})}{(1-r)^2}$$
+\vspace{6cm}
+
+\textbf{10.} \textbf{Challenge Problem:} 
+
+\begin{enumerate}
+\item[(a)] Prove that $\sum_{k=1}^{n} k \cdot k! = (n+1)! - 1$ using mathematical induction.
+\vspace{4cm}
+
+\item[(b)] Use this result to find a closed form for $\sum_{k=1}^{n} k^2 \cdot k!$.
+\vspace{4cm}
+
+\item[(c)] Generalize: What pattern emerges for $\sum_{k=1}^{n} k^m \cdot k!$ for different values of $m$?
+\vspace{3cm}
+\end{enumerate}
+
+\end{document} 
