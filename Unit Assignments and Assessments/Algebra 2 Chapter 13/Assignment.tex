@@ -1,0 +1,264 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+\usepackage{amsthm}
+\usetikzlibrary{matrix}
+
+% Page setup
+\geometry{margin=1in}
+\setlength{\headheight}{15pt}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Integrated Algebra 2 and Precalculus}
+\fancyhead[R]{Assignment: Chapter 13 of Algebra 2}
+\fancyfoot[C]{Page \thepage}
+
+% Theorem environments
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{example}{Example}
+\newtheorem{lemma}{Lemma}
+
+\begin{document}
+
+\begin{center}
+\textbf{\Large Trigonometric Series and Telescoping Techniques} \\
+\vspace{0.5cm}
+\makebox[0.4\textwidth]{Name: \enspace\hrulefill}
+\hspace{0.1\textwidth}
+\makebox[0.4\textwidth]{Date: \enspace\hrulefill}
+\end{center}
+
+\vspace{0.5cm}
+
+\section{Introduction}
+
+In the study of trigonometry, we often encounter infinite series that involve trigonometric functions. These series not only provide elegant mathematical expressions but also have profound applications in physics, engineering, and signal processing. Similarly, telescoping series represent a powerful technique for evaluating seemingly complex sums by recognizing patterns where consecutive terms cancel each other out.
+
+This assignment explores the intersection of trigonometric functions with series theory, examining both the classical Fourier series representations and the algebraic beauty of telescoping sums. We'll discover how trigonometric identities can be used to simplify complex series, and how telescoping techniques can reveal hidden patterns in trigonometric expressions.
+
+The skills developed here will provide a foundation for understanding harmonic analysis, differential equations, and advanced calculus concepts. More immediately, these techniques offer powerful tools for solving competition-level problems and provide insight into the deep connections between trigonometry and number theory.
+
+\section{Telescoping Series: The Foundation}
+
+\begin{definition}
+A \textbf{telescoping series} is a series where consecutive terms cancel out when the sum is expanded, leaving only a finite number of terms. The general form is:
+$$\sum_{n=1}^{N} [f(n) - f(n+1)] = f(1) - f(N+1)$$
+
+When the limit $\lim_{N \to \infty} f(N+1)$ exists, the infinite series converges to $f(1) - \lim_{N \to \infty} f(N+1)$.
+\end{definition}
+
+\subsection{Basic Telescoping Patterns}
+
+The key to recognizing telescoping series lies in identifying expressions that can be decomposed into differences. Common techniques include:
+
+\begin{itemize}
+\item \textbf{Partial Fractions:} $\frac{1}{n(n+1)} = \frac{1}{n} - \frac{1}{n+1}$
+\item \textbf{Trigonometric Identities:} Using sum-to-product and product-to-sum formulas
+\item \textbf{Algebraic Manipulation:} Factoring and rationalizing expressions
+\end{itemize}
+
+\begin{example}
+Consider the series $\sum_{n=1}^{\infty} \frac{1}{n(n+1)}$.
+
+Using partial fractions: $\frac{1}{n(n+1)} = \frac{1}{n} - \frac{1}{n+1}$
+
+The partial sum becomes:
+$$S_N = \sum_{n=1}^{N} \left(\frac{1}{n} - \frac{1}{n+1}\right) = 1 - \frac{1}{N+1}$$
+
+As $N \to \infty$, the series converges to $1$.
+\end{example}
+
+\section{Trigonometric Series and Identities}
+
+\subsection{Fourier Series Foundation}
+
+\begin{definition}
+A \textbf{trigonometric series} is a series of the form:
+$$\frac{a_0}{2} + \sum_{n=1}^{\infty} [a_n \cos(nx) + b_n \sin(nx)]$$
+
+where $a_n$ and $b_n$ are the Fourier coefficients of a function $f(x)$.
+\end{definition}
+
+\subsection{Key Trigonometric Identities for Series}
+
+\begin{theorem}[Sum-to-Product Formulas]
+\begin{align}
+\sin A + \sin B &= 2\sin\left(\frac{A+B}{2}\right)\cos\left(\frac{A-B}{2}\right) \\
+\sin A - \sin B &= 2\cos\left(\frac{A+B}{2}\right)\sin\left(\frac{A-B}{2}\right) \\
+\cos A + \cos B &= 2\cos\left(\frac{A+B}{2}\right)\cos\left(\frac{A-B}{2}\right) \\
+\cos A - \cos B &= -2\sin\left(\frac{A+B}{2}\right)\sin\left(\frac{A-B}{2}\right)
+\end{align}
+\end{theorem}
+
+These identities are particularly useful for creating telescoping series involving trigonometric functions.
+
+\section{Telescoping Trigonometric Series}
+
+\subsection{Product-to-Sum Telescoping}
+
+\begin{theorem}
+For the series involving products of sines and cosines:
+$$\sum_{n=1}^{N} \sin(n\theta)\sin((n+1)\theta) = \frac{1}{2}\sum_{n=1}^{N} [\cos(\theta) - \cos((2n+1)\theta)]$$
+
+This can telescope under certain conditions.
+\end{theorem}
+
+\begin{example}[Classic Telescoping Trigonometric Series]
+Consider: $\sum_{n=1}^{N} \frac{\sin(n\theta)}{\sin\theta} \cdot \frac{1}{n(n+1)}$
+
+Using the identity $\frac{1}{n(n+1)} = \frac{1}{n} - \frac{1}{n+1}$:
+
+$$\sum_{n=1}^{N} \frac{\sin(n\theta)}{\sin\theta} \left(\frac{1}{n} - \frac{1}{n+1}\right)$$
+
+This telescopes to yield a finite expression involving trigonometric functions.
+\end{example}
+
+\subsection{Advanced Telescoping with Complex Exponentials}
+
+Using Euler's formula $e^{i\theta} = \cos\theta + i\sin\theta$, many trigonometric series can be evaluated using the telescoping property of geometric series.
+
+\begin{theorem}[Geometric Series with Complex Arguments]
+For $|r| < 1$:
+$$\sum_{n=0}^{\infty} r^n e^{in\theta} = \frac{1}{1-re^{i\theta}}$$
+
+Taking real and imaginary parts gives telescoping forms for cosine and sine series.
+\end{theorem}
+
+\section{Applications to Harmonic Analysis}
+
+\subsection{Dirichlet Kernel}
+
+\begin{definition}
+The \textbf{Dirichlet kernel} is defined as:
+$$D_N(x) = \sum_{n=-N}^{N} e^{inx} = \frac{\sin((N+\frac{1}{2})x)}{\sin(x/2)}$$
+
+This demonstrates how a finite trigonometric series can telescope to a single expression.
+\end{definition}
+
+\subsection{Fejér Kernel and Cesàro Summation}
+
+The Fejér kernel provides another example of telescoping in harmonic analysis:
+$$F_N(x) = \frac{1}{N+1}\sum_{n=0}^{N} D_n(x) = \frac{1}{N+1} \cdot \frac{\sin^2((N+1)x/2)}{\sin^2(x/2)}$$
+
+\section{Computational Techniques}
+
+\subsection{Numerical Evaluation Methods}
+
+When evaluating telescoping trigonometric series computationally:
+
+\begin{enumerate}
+\item \textbf{Identify the telescoping pattern} before attempting numerical summation
+\item \textbf{Use the closed form} whenever possible to avoid accumulation of numerical errors
+\item \textbf{Apply trigonometric identities} to simplify expressions before computation
+\end{enumerate}
+
+\subsection{Convergence Analysis}
+
+\begin{theorem}[Convergence of Telescoping Trigonometric Series]
+A telescoping trigonometric series $\sum_{n=1}^{\infty} [f(n) - f(n+1)]$ converges if and only if $\lim_{n \to \infty} f(n)$ exists and is finite.
+\end{theorem}
+
+\newpage
+
+\section{Practice Problems}
+
+\textbf{Part A: Basic Telescoping Series}
+
+\textbf{1.} Evaluate the following telescoping series:
+
+\begin{enumerate}
+\item[(a)] $\sum_{n=1}^{N} \frac{1}{n(n+2)}$
+\vspace{3cm}
+
+\item[(b)] $\sum_{n=1}^{N} \frac{1}{(2n-1)(2n+1)}$
+\vspace{3cm}
+
+\item[(c)] $\sum_{n=1}^{N} \frac{1}{n^2(n+1)^2}$
+\vspace{3cm}
+\end{enumerate}
+
+\textbf{2.} Find the sum of the infinite series:
+$$\sum_{n=1}^{\infty} \frac{1}{n(n+1)(n+2)}$$
+
+\textit{Hint:} Use partial fractions with three terms.
+\vspace{4cm}
+
+\textbf{3.} Prove that:
+$$\sum_{n=1}^{N} \frac{1}{\sqrt{n} + \sqrt{n+1}} = \sqrt{N+1} - 1$$
+\vspace{4cm}
+
+\textbf{Part B: Trigonometric Series}
+
+\textbf{4.} Using sum-to-product identities, show that:
+$$\sum_{n=1}^{N} \sin(n\theta) = \frac{\sin(N\theta/2)\sin((N+1)\theta/2)}{\sin(\theta/2)}$$
+
+for $\theta \neq 2\pi k$ where $k$ is an integer.
+\vspace{5cm}
+
+\textbf{5.} Evaluate the series:
+$$\sum_{n=1}^{N} \cos(n\theta)$$
+
+using complex exponentials and geometric series.
+\vspace{4cm}
+
+\textbf{6.} Show that for $0 < \theta < 2\pi$:
+$$\sum_{n=1}^{\infty} \frac{\sin(n\theta)}{n} = \frac{\pi - \theta}{2}$$
+
+\textit{Hint:} Consider the Fourier series of $f(x) = x$ on $[0, 2\pi]$.
+\vspace{5cm}
+
+\textbf{Part C: Telescoping Trigonometric Series}
+
+\textbf{7.} Prove that:
+$$\sum_{n=1}^{N} \frac{\sin(n\theta) - \sin((n+1)\theta)}{\sin\theta} = \frac{1 - \cos(N\theta)}{\sin\theta}$$
+\vspace{5cm}
+
+\textbf{8.} Using telescoping techniques, evaluate:
+$$\sum_{n=1}^{N} \frac{\cos(n\theta)}{n(n+1)}$$
+
+where the series telescopes using the identity for $\frac{1}{n(n+1)}$.
+\vspace{5cm}
+
+\textbf{9.} Show that:
+$$\sum_{n=1}^{\infty} \frac{(-1)^n \sin(n\theta)}{n(n+1)} = \frac{\pi - \theta}{2} - \frac{\sin\theta}{2}$$
+
+for $0 < \theta < 2\pi$.
+\vspace{5cm}
+
+\textbf{Part D: Advanced Applications}
+
+\textbf{10.} \textbf{Dirichlet Kernel:} Prove that:
+$$\sum_{n=-N}^{N} e^{inx} = \frac{\sin((N+1/2)x)}{\sin(x/2)}$$
+
+by using the telescoping property of the geometric series.
+\vspace{5cm}
+
+\textbf{11.} \textbf{Fejér Summation:} Show that the Fejér kernel can be written as:
+$$F_N(x) = \frac{1}{N+1} \sum_{n=0}^{N} D_n(x) = \frac{\sin^2((N+1)x/2)}{(N+1)\sin^2(x/2)}$$
+
+where $D_n(x)$ is the Dirichlet kernel.
+\vspace{5cm}
+
+\textbf{12.} \textbf{Challenge Problem:} Consider the series:
+$$S = \sum_{n=1}^{\infty} \frac{\sin(n\theta)\cos(n\phi)}{n^2}$$
+
+\begin{enumerate}
+\item[(a)] Express this in terms of complex exponentials.
+\vspace{3cm}
+
+\item[(b)] Use telescoping techniques to find a closed form when $\theta = \phi$.
+\vspace{4cm}
+
+\item[(c)] Investigate the convergence properties for different values of $\theta$ and $\phi$.
+\vspace{3cm}
+\end{enumerate}
+
+
+
+\end{document}
