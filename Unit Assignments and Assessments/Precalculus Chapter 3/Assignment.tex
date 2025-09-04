@@ -1,0 +1,249 @@
+\documentclass[12pt]{exam}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usepackage{lastpage}
+
+% Header and Footer
+\pagestyle{headandfoot}
+\firstpageheader{Precalculus Mathematics for Calculus (Stewart)}{}{Assignment: Chapter 3}
+\runningheader{Precalculus Mathematics for Calculus (Stewart)}{}{Assignment: Chapter 3}
+\firstpagefooter{}{Page \thepage\ of \pageref{LastPage}}{}
+\runningfooter{}{Page \thepage\ of \pageref{LastPage}}{}
+
+% Title
+\newcommand{\examtitle}{Chapter 3 Assignment --- Polynomial and Rational Functions: Strategies, Practice, and Challenges}
+
+% Instructions
+\newcommand{\instructions}{
+    \noindent\rule{\textwidth}{0.5pt}
+    \begin{center}
+    \textbf{How to use this set:} Each topic begins with \emph{Strategy Notes} and a \emph{Worked Example} to model thinking for harder problems. Then try the \emph{Practice} (skill-building) and the \emph{Challenge} (beyond-exam) items. Show full reasoning and state domain restrictions when relevant.
+    \end{center}
+    \noindent\rule{\textwidth}{0.5pt}
+}
+
+\begin{document}
+
+\begin{center}
+\textbf{\Large \examtitle} \\
+\vspace{0.5cm}
+\makebox[0.4\textwidth]{Name: \enspace\hrulefill}
+\hspace{0.1\textwidth}
+\makebox[0.4\textwidth]{Date: \enspace\hrulefill}
+\end{center}
+
+\instructions
+\vspace{0.5cm}
+
+\begin{questions}
+
+% T1 — Polynomial functions and their graphs
+\question
+\textbf{Topic 1: Polynomial Functions and Their Graphs}
+
+\textbf{Strategy Notes.} Analyze end behavior using leading term, determine intercepts, and use symmetry or factoring where possible. Track multiplicity to predict whether a graph \emph{crosses} or \emph{touches} the axis at a zero.
+
+\textbf{Worked Example.} Analyze $p(x)=-\dfrac{1}{2}(x-1)^2(x+2)^3$.
+
+End behavior from the leading term $-\dfrac{1}{2}x^5$: as $x\to-\infty$, $p(x)\to+\infty$; as $x\to+\infty$, $p(x)\to-\infty$. Zeros: $x=1$ (even multiplicity 2, the graph \emph{touches} the axis) and $x=-2$ (odd multiplicity 3, the graph \emph{crosses} with a flattening). $y$-intercept at $x=0$: $p(0)=-\dfrac{1}{2}( -1)^2(2)^3=-4$. Sketch using these features and the fact that a fifth-degree has at most four turning points.
+
+\vspace{0.2cm}
+\textbf{Practice.}
+\begin{parts}
+    \part For $g(x)=-(x-3)^2(x+1)(x+4)$, determine end behavior, all $x$- and $y$-intercepts, and whether the graph crosses or only touches at each intercept. Sketch a clean graph.
+    \vspace*{2.6cm}
+    \part Find a monic quartic whose graph has $x$-intercepts at $-2$ (double), $1$ (simple), and $5$ (simple). State the $y$-intercept and the number of local extrema.
+    \vspace*{2.6cm}
+    \part Suppose $h(x)$ is a cubic with leading coefficient $-3$ and zeros $-1$ (double) and $4$. Write $h(x)$ in factored form and expand.
+    \vspace*{2.4cm}
+\end{parts}
+
+\textbf{Challenge.}
+\begin{parts}
+    \part Design a fifth-degree polynomial with integer coefficients whose only real zeros are $-2$ (multiplicity 2) and $3$ (multiplicity 1), and whose graph has $y$-intercept $-12$. Give one possible formula and justify that it meets all conditions.
+    \vspace*{3.0cm}
+\end{parts}
+
+\newpage
+
+% T2 — Dividing polynomials: long and synthetic; Remainder/Factor Theorems
+\question
+\textbf{Topic 2: Dividing Polynomials --- Long/Synthetic, Remainder, and Factor Theorems}
+
+\textbf{Strategy Notes.} Align powers for long division. For synthetic division, use the zero of the divisor. The Remainder Theorem gives $f(c)$ as the remainder when dividing by $(x-c)$; the Factor Theorem states $(x-c)$ is a factor iff $f(c)=0$.
+
+\textbf{Worked Example.} Let $f(x)=2x^5-5x^3+4x-7$. Divide by $x-2$ using synthetic division and interpret the remainder.
+
+Synthetic division with $c=2$ gives quotient $2x^4+4x^3+3x^2+6x+16$ and remainder $25$. By the Remainder Theorem, $f(2)=25$; therefore $(x-2)$ is not a factor.
+
+\vspace{0.2cm}
+\textbf{Practice.}
+\begin{parts}
+    \part Use long division to find the quotient and remainder when $P(x)=3x^4-x^3+2x-5$ is divided by $x^2-x+1$.
+    \vspace*{2.4cm}
+    \part Find all real numbers $k$ such that $x+1$ is a factor of $Q(x)=4x^3+kx^2-7x+k-3$.
+    \vspace*{2.4cm}
+    \part Compute $R(x)$ and the remainder when $S(x)=5x^4+2x^3-9x+8$ is divided by $x+2$ using synthetic division; then evaluate $S(-2)$.
+    \vspace*{2.0cm}
+\end{parts}
+
+\textbf{Challenge.}
+\begin{parts}
+    \part Let $f(x)=ax^3+bx^2+cx+d$ with integers $a,\dots,d$. Suppose $f(2)=5$ and $f(-1)=0$, and $x+1$ divides $f'(x)$. Determine a nontrivial $f(x)$ with integer coefficients.
+    \vspace*{3.0cm}
+    \part Prove or disprove: If $f(x)$ has integer coefficients and $(x-c)$ divides $f(x)$, then $(x-c)$ also divides $f(x^2)$.
+    \vspace*{3.0cm}
+\end{parts}
+
+\newpage
+
+% T3 — Real zeros of polynomials: factoring, rational root test, sign charts
+\question
+\textbf{Topic 3: Real Zeros of Polynomials --- Rational Root Test and Multiplicity}
+
+\textbf{Strategy Notes.} Use the Rational Root Test to list candidates; apply synthetic division to confirm. Factor fully and use multiplicity to describe the behavior at each zero. Use sign charts to solve polynomial inequalities.
+
+\textbf{Worked Example.} Use the Rational Root Test to factor
+\[p(x)=2x^4-x^3-14x^2-5x+6.\]
+Candidates are $\pm1,\pm2,\pm3,\pm6,\pm\tfrac{1}{2},\pm\tfrac{3}{2}$. Testing shows $x=3,-2,\tfrac{1}{2},-1$ are zeros, hence
+\[p(x)=(x-3)(x+2)(2x-1)(x+1).\]
+
+\vspace{0.2cm}
+\textbf{Practice.}
+\begin{parts}
+    \part Factor completely over $\mathbb{R}$: $q(x)=3x^4-8x^3-17x^2+2x+8$.
+    \vspace*{2.6cm}
+    \part Solve the inequality $\dfrac{x^4-5x^2+4}{x^2-4x+3}>0$ using a sign chart. State domain restrictions clearly.
+    \vspace*{2.8cm}
+    \part A quartic $r(x)$ has leading coefficient $1$, zeros $-2$ (double) and $\tfrac{3}{2}$, and $r(0)=6$. Determine $r(x)$.
+    \vspace*{2.6cm}
+\end{parts}
+
+\textbf{Challenge.}
+\begin{parts}
+    \part For $s(x)=2x^3-x^2-5x+3$, show there is a real zero in $(0,1)$ but no rational zeros in that interval. Then locate the zero to two decimal places.
+    \vspace*{3.0cm}
+\end{parts}
+
+\newpage
+
+% T4 — Complex numbers
+\question
+\textbf{Topic 4: Complex Numbers --- Algebra and Powers of $i$}
+
+\textbf{Strategy Notes.} Use $(a+bi)(c+di)=(ac-bd)+(ad+bc)i$ and rationalize denominators with complex conjugates. Reduce powers with $i^2=-1$ and $i^{4k+r}=i^r$.
+
+\textbf{Worked Example.} Compute $\dfrac{-1+4i}{5+i}$ in $a+bi$ form and reduce $i^{73}$.
+
+Multiply numerator and denominator by $5-i$ to get $\dfrac{(-1+4i)(5-i)}{26}=\dfrac{-5+i+20i-4i^2}{26}=\dfrac{-1+21i}{26}$. Also $i^{73}=i^{4\cdot18+1}=i$.
+
+\vspace{0.2cm}
+\textbf{Practice.}
+\begin{parts}
+    \part Let $w=-1+4i$ and $z=5+i$. Compute $2w-3z$ and $w\,\overline{z}$.
+    \vspace*{2.0cm}
+    \part Simplify $\dfrac{3-2i}{1+2i}$ and $\dfrac{2+i}{1-i}$.
+    \vspace*{2.2cm}
+    \part Evaluate $\dfrac{(1-2i)^5}{(1+i)^3}$ in $a+bi$ form.
+    \vspace*{2.2cm}
+\end{parts}
+
+\textbf{Challenge.}
+\begin{parts}
+    \part Let $x,y\in\mathbb{R}$ with $y\ne0$. Show that $\dfrac{-y+xi}{x+yi}$ is purely imaginary.
+    \vspace*{2.4cm}
+\end{parts}
+
+\newpage
+
+% T5 — Complex zeros and the Fundamental Theorem of Algebra
+\question
+\textbf{Topic 5: Complex Zeros and the Fundamental Theorem of Algebra}
+
+\textbf{Strategy Notes.} Real-coefficient polynomials have complex zeros in conjugate pairs. Combine known real zeros with quadratic factors from conjugate pairs; match coefficients to determine unknowns.
+
+\textbf{Worked Example.} Find a cubic with real coefficients and leading coefficient $2$ whose zeros include $\tfrac{1}{2}$ and $2\pm3i$.
+
+Because coefficients are real, both $2\pm3i$ occur. Thus
+\[f(x)=(x^2-4x+13)(2x-1)=2x^3-9x^2+30x-13.\]
+
+\vspace{0.2cm}
+\textbf{Practice.}
+\begin{parts}
+    \part A quartic with real coefficients has zeros $2$ (double) and $1\pm i$. Write it in factored form and expand to a real polynomial.
+    \vspace*{2.6cm}
+    \part Construct the least-degree monic polynomial with zeros $-3$ and $1-2i$. Find its constant term and $y$-intercept.
+    \vspace*{2.6cm}
+\end{parts}
+
+\textbf{Challenge.}
+\begin{parts}
+    \part Suppose $f(x)$ is a monic quartic with integer coefficients and all zeros integers. If the constant term is $-24$ and the sum of the zeros is $5$, list all possible multisets of zeros up to ordering.
+    \vspace*{3.0cm}
+\end{parts}
+
+\newpage
+
+% T6 — Rational functions: asymptotes, holes, intercepts, graphing
+\question
+\textbf{Topic 6: Rational Functions --- Asymptotes, Holes, and Graphing}
+
+\textbf{Strategy Notes.} Factor numerator/denominator to detect holes (common factors) and vertical asymptotes (denominator zeros not cancelled). Use degree comparison for end behavior: horizontal, slant, or non-existent. Plot intercepts and key points; use sign charts across vertical asymptotes.
+
+\textbf{Worked Example.} Analyze
+\[R(x)=\frac{x^2-5x+6}{x^2-4x+3}.\]
+Factor to find potential cancellations and vertical asymptotes: $R(x)=\dfrac{(x-2)(x-3)}{(x-1)(x-3)}=\dfrac{x-2}{x-1}$ with a \emph{hole} at $x=3$. Domain excludes $x=1,3$. Intercepts: $x=2$ (crosses), $y$-intercept $R(0)=2$. Horizontal asymptote $y=1$ (equal degrees; ratio of leading coefficients). Sketch using a sign chart across $x=1$.
+
+\vspace{0.2cm}
+\textbf{Practice.}
+\begin{parts}
+    \part For $\displaystyle r(x)=\frac{x^2-6x+8}{x^2-4x-12}$, determine domain, vertical/horizontal asymptotes, holes, and intercepts. Indicate sign on each interval of the domain.
+    \vspace*{3.0cm}
+    \part Determine the slant asymptote of $\displaystyle s(x)=\frac{x^3-9x+10}{x^2-4}$ and state the behavior near each vertical asymptote.
+    \vspace*{2.8cm}
+\end{parts}
+
+\textbf{Challenge.}
+\begin{parts}
+    \part Find all real parameters $a$ such that the graphs of $y=\dfrac{x^2-ax+1}{x-a}$ and $y=1$ intersect in exactly one point. Justify.
+    \vspace*{3.0cm}
+\end{parts}
+
+\newpage
+
+% T7 — Polynomial/rational inequalities (dedicated)
+\question
+\textbf{Topic 7: Polynomial and Rational Inequalities --- Sign Charts and Domain}
+
+\textbf{Strategy Notes.} For $\dfrac{N(x)}{D(x)}\,\square\,0$: factor $N$ and $D$ completely; list critical points (zeros of $N$ and $D$). Exclude denominator zeros from the solution. Use multiplicity: an \emph{even} multiplicity does not change sign across that point. Test one value in each interval or track sign changes logically. Include endpoints only when the inequality is non-strict and the point is not excluded by the domain.
+
+\textbf{Worked Example.} Solve $\displaystyle \frac{(x+1)^2(x-3)}{x^2-4}\le 0$.
+
+Domain: $x\ne -2,2$. Critical points in order: $-\infty< -2< -1< 2< 3<\infty$. Using signs (or a chart): the expression is negative on $(-\infty,-2)$ and $(2,3)$, positive on $(-2,-1)$, $(-1,2)$, and $(3,\infty)$. Since $\le0$, include negative intervals and zeros of the numerator that are in the domain. Solution:
+\[(-\infty,-2)\,\cup\,\{-1\}\,\cup\,(2,3].\]
+
+\vspace{0.2cm}
+\textbf{Practice.}
+\begin{parts}
+    \part Solve $\displaystyle \frac{(x-4)^2(x+2)}{(x-1)(x+3)}\ge 0$ and sketch the solution on a number line. State domain restrictions first.
+    \vspace*{2.8cm}
+    \part Solve $x^5-4x^3+3x\le 0$ by factoring and using multiplicity to minimize testing.
+    \vspace*{2.6cm}
+    \part Solve $\displaystyle \frac{x^2-9}{x^2-4x-12}<0$ and express the answer in interval notation, clearly distinguishing cancellations from domain exclusions.
+    \vspace*{2.8cm}
+\end{parts}
+
+\textbf{Challenge.}
+\begin{parts}
+    \part Find all real numbers $k$ such that $\displaystyle \frac{x^2-4x+k}{(x-1)(x-3)}>0$ for every $x\in(-\infty,1)\cup(3,\infty)$. Justify your conditions on $k$.
+    \vspace*{3.0cm}
+\end{parts}
+
+\end{questions}
+
+\end{document}
