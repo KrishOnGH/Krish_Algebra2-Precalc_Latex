@@ -1,0 +1,221 @@
+\documentclass[12pt]{exam}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usepackage{lastpage}
+
+% Header and Footer
+\pagestyle{headandfoot}
+\firstpageheader{Precalculus Mathematics for Calculus (Stewart)}{}{Assignment: Chapter 12}
+\runningheader{Precalculus Mathematics for Calculus (Stewart)}{}{Assignment: Chapter 12}
+\firstpagefooter{}{Page \thepage\ of \pageref{LastPage}}{}
+\runningfooter{}{Page \thepage\ of \pageref{LastPage}}{}
+
+% Title
+\newcommand{\examtitle}{Chapter 12 Assignment --- Sequences and Series}
+
+% Instructions
+\newcommand{\instructions}{
+    \noindent\rule{\textwidth}{0.5pt}
+    \begin{center}
+    \textbf{How to use this set:} Each topic begins with \emph{Strategy Notes} and a \emph{Worked Example}. Then try the \emph{Practice} (skill) and the \emph{Challenge} (deeper) items. When a sum/product is requested, use clear sigma/product notation and show clean algebra. For finance, label formulas and intermediate values.
+    \end{center}
+    \noindent\rule{\textwidth}{0.5pt}
+}
+
+% Uniform spacing between parts
+\newlength{\partskip}
+\setlength{\partskip}{5cm}
+\newcommand{\partspace}{\vspace*{\partskip}}
+
+\begin{document}
+
+\begin{center}
+\textbf{\Large \examtitle} \\
+\vspace{0.5cm}
+\makebox[0.4\textwidth]{Name: \enspace\hrulefill}
+\hspace{0.1\textwidth}
+\makebox[0.4\textwidth]{Date: \enspace\hrulefill}
+\end{center}
+
+\instructions
+\vspace{0.5cm}
+
+\begin{questions}
+
+% T1 — 12.1 Sequences and Summation Notation
+\question
+\textbf{Topic 1: Sequences and Summation Notation}
+
+\textbf{Strategy Notes.} A sequence $\{a_n\}$ may be defined recursively or by a closed form. Use $\displaystyle\sum_{k=m}^{n}$ for finite sums and $\displaystyle\prod_{k=m}^{n}$ for finite products. Index shifts (e.g., $k\mapsto k+1$) are often helpful for combining or telescoping expressions.
+
+\textbf{Worked Example.} Rewrite $1+4+7+\cdots+(3n-2)$ using sigma notation and evaluate.\quad\emph{Solution sketch:} $\displaystyle\sum_{k=1}^{n}(3k-2)=\tfrac{n}{2}\bigl((3\cdot1-2)+(3n-2)\bigr)=\tfrac{n}{2}(1+3n-2)=\tfrac{n(3n-1)}{2}$.
+
+\textbf{Practice.}
+\begin{parts}
+    \part Write $x_1+2x_2+3x_3+\cdots+nx_n$ using sigma notation.
+    \partspace
+    \part Rewrite $\displaystyle \sum_{k=3}^{n}(k-2)$ with the index starting at $1$, and simplify to a closed form in $n$.
+\end{parts}
+
+\newpage
+\textbf{Challenge.}
+\begin{parts}
+    \part Evaluate the triple sum $\displaystyle \sum_{i=1}^{5}\sum_{j=1}^{i}\sum_{k=1}^{j}1$.
+    \partspace
+    \part Evaluate the product $\displaystyle \prod_{k=2}^{n}\left(1+\frac{1}{k}\right)$ and simplify your answer.
+\end{parts}
+
+\newpage
+
+% T2 — 12.2 Arithmetic Sequences
+\question
+\textbf{Topic 2: Arithmetic Sequences}
+
+\textbf{Strategy Notes.} For an arithmetic sequence with first term $a_1$ and common difference $d$, $a_n=a_1+(n-1)d$. The partial sum is $S_n=\dfrac{n}{2}\bigl(2a_1+(n-1)d\bigr)=\dfrac{n(a_1+a_n)}{2}$.
+
+\textbf{Worked Example.} Let $a_1=7$ and $d=-3$. Then $a_{20}=7+19(-3)=-50$ and $S_{20}=\dfrac{20}{2}(7-50)=-430$.
+
+\textbf{Practice.}
+\begin{parts}
+    \part The sequence begins $5,8,11,\dots$. Find $a_{50}$ and $S_{50}$.
+    \partspace
+    \part An arithmetic sequence satisfies $a_6=10$ and $a_{15}=37$. Find $d$, $a_1$, and $a_{100}$.
+\end{parts}
+
+\newpage
+\textbf{Challenge.}
+\begin{parts}
+    \part The sum of the first $n$ terms is $S_n=630$ for a sequence with $a_1=12$ and $d=6$. Find $n$.
+    \partspace
+    \part The $p$th term is $a_p=2p+5$. Show the sequence is arithmetic and compute $\displaystyle\sum_{k=1}^{n} a_k$ in closed form.
+\end{parts}
+
+\newpage
+
+% T3 — 12.3 Geometric Sequences
+\question
+\textbf{Topic 3: Geometric Sequences}
+
+\textbf{Strategy Notes.} For a geometric sequence with first term $a_1$ and ratio $r$, $a_n=a_1r^{n-1}$. If $|r|<1$, then $S_n=a_1\dfrac{1-r^n}{1-r}$ and $S_\infty=\dfrac{a_1}{1-r}$.
+
+\textbf{Worked Example.} If $a_1=9$ and $r=\tfrac{1}{3}$, then $a_7=9\left(\tfrac{1}{3}\right)^6=\tfrac{1}{81}$ and $S_\infty=\dfrac{9}{1-1/3}=\tfrac{27}{2}$.
+
+\textbf{Practice.}
+\begin{parts}
+    \part The sequence $2,6,18,\dots$ is geometric. Find an explicit formula for $a_n$ and compute $S_8$.
+    \partspace
+    \part If $a_5=81$ and $a_8=3$, find the common ratio $r$ and the first term $a_1$.
+\end{parts}
+
+\newpage
+\textbf{Challenge.}
+\begin{parts}
+    \part Evaluate $\displaystyle \sum_{k=0}^{\infty} \frac{4^k+2^k}{8^k}$.
+    \partspace
+    \part A geometric sequence has $a_1=5$ and $r=2$. How many terms are needed so that the partial sum first exceeds $10{,}000$? Express your work using logarithms.
+\end{parts}
+
+\newpage
+
+% T4 — 12.4 Mathematics of Finance
+\question
+\textbf{Topic 4: Mathematics of Finance}
+
+\textbf{Strategy Notes.} With APR $r$ compounded $m$ times per year for $t$ years: $A=P\left(1+\tfrac{r}{m}\right)^{mt}$. For an ordinary annuity with periodic rate $i=\tfrac{r}{m}$ and $N=mt$ payments: future value $S=\text{PMT}\,\dfrac{(1+i)^N-1}{i}$, present value $PV=\text{PMT}\,\dfrac{1-(1+i)^{-N}}{i}$.
+
+\textbf{Worked Example.} Deposit $P=5000$ at $6\%$ APR compounded monthly for $4$ years. Then $A=5000\left(1+\tfrac{0.06}{12}\right)^{48}$.
+
+\textbf{Practice.}
+\begin{parts}
+    \part What monthly deposit is required to accumulate $\$10{,}000$ in $3$ years at $4.8\%$ APR compounded monthly? State the formula you use and your numeric answer to the nearest cent.
+    \partspace
+    \part A loan of $\$12{,}000$ has APR $5.4\%$ with monthly payments of $\$230$. Estimate the number of payments needed to fully repay the loan.
+\end{parts}
+
+\newpage
+\textbf{Challenge.}
+\begin{parts}
+    \part Compare the accumulated value after $5$ years of \,(i) simple interest at $7\%$ and \,(ii) compound interest at $7\%$ compounded quarterly for an initial $\$2000$ deposit. State both amounts and the difference.
+    \partspace
+    \part You deposit $\$100$ at the end of each month for $10$ years at $5\%$ APR (monthly compounding), then stop depositing and leave the balance for $5$ more years at the same APR. Find the final amount.
+\end{parts}
+
+\newpage
+
+% T5 — 12.5 Mathematical Induction
+\question
+\textbf{Topic 5: Mathematical Induction}
+
+% Full-page proof placed directly under the section heading
+\textbf{Worked Example (Full Proof).} Prove that $1+3+5+\cdots+(2n-1)=n^2$ for all $n\ge1$.
+
+\emph{Base case ($n=1$):} The left-hand side (LHS) is $1$, and the right-hand side (RHS) is $1^2=1$. Thus the statement holds for $n=1$.
+
+\emph{Inductive step:} Assume for some integer $k\ge1$ that
+\[
+1+3+5+\cdots+(2k-1)=k^2.\tag{IH}
+\]
+We must show that
+\[
+1+3+5+\cdots+(2k-1)+(2k+1)=(k+1)^2.
+\]
+Using (IH), the LHS becomes
+\[
+\underbrace{\bigl(1+3+\cdots+(2k-1)\bigr)}_{k^2}\;+(2k+1)=k^2+2k+1=(k+1)^2.
+\]
+Thus the statement holds for $k+1$ whenever it holds for $k$.
+
+By mathematical induction, the identity holds for all integers $n\ge1$.
+\newpage
+\textbf{Topic 5: Mathematical Induction (continued)}
+
+\textbf{Practice.}
+\begin{parts}
+    \part Prove by induction that $1^2+2^2+\cdots+n^2=\dfrac{n(n+1)(2n+1)}{6}$.
+    \newpage
+    \part Show by induction that $2^n>n^2$ for all integers $n\ge5$.
+\end{parts}
+
+\newpage
+\textbf{Challenge.}
+\begin{parts}
+    \part Prove that $n^3+2n$ is divisible by $3$ for all integers $n\ge0$.
+    \newpage
+    \part Prove that $\displaystyle \sum_{k=0}^{n} \binom{n}{k}=2^n$.
+\end{parts}
+
+\newpage
+
+% T6 — 12.6 The Binomial Theorem
+\question
+\textbf{Topic 6: The Binomial Theorem}
+
+\textbf{Strategy Notes.} $(a+b)^n=\sum\limits_{k=0}^{n}\binom{n}{k}a^{n-k}b^k$. The general term (counting from $k=0$) is $T_{k+1}=\binom{n}{k}a^{n-k}b^k$. For constant-term problems, track powers carefully.
+
+\textbf{Worked Example.} In $(2x-3)^5$, the $x^3$-term is $\binom{5}{3}(2x)^3(-3)^2=10\cdot8x^3\cdot9=720x^3$.
+
+\textbf{Practice.}
+\begin{parts}
+    \part Find the $6$th term (as written in descending powers of $x$) of $(3x-2)^{10}$.
+    \partspace
+    \part Find the constant term in the expansion of $\left(x^2+\dfrac{1}{x}\right)^{9}$.
+\end{parts}
+
+\newpage
+\textbf{Challenge.}
+\begin{parts}
+    \part Use the binomial theorem to approximate $(1.02)^{10}$ to four decimal places without a calculator; show your reasoning.
+    \newpage
+    \part Prove the identity $\displaystyle \sum_{k=0}^{n}(-1)^k\binom{n}{k}=0$ for $n\ge1$ by evaluating $(1-1)^n$.
+\end{parts}
+
+\end{questions}
+
+\end{document}
+
+

@@ -1,0 +1,141 @@
+\documentclass[12pt]{exam}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usepackage{lastpage}
+
+% Header and Footer
+\pagestyle{headandfoot}
+\firstpageheader{Precalculus Mathematics for Calculus (Stewart)}{}{Assessment: Chapter 12}
+\runningheader{Precalculus Mathematics for Calculus (Stewart)}{}{Assessment: Chapter 12}
+\firstpagefooter{}{Page \thepage\ of \pageref{LastPage}}{}
+\runningfooter{}{Page \thepage\ of \pageref{LastPage}}{}
+
+% Title
+\newcommand{\examtitle}{Chapter 12: Sequences and Series}
+
+% Instructions
+\newcommand{\instructions}{
+    \noindent\rule{\textwidth}{0.5pt}
+    \begin{center}
+    \textbf{Instructions:} Answer all questions and show clear work. Give exact values when possible. Use sigma/product notation precisely; for finance problems, state the formula used before computing. Clearly justify induction steps.
+    \end{center}
+    \noindent\rule{\textwidth}{0.5pt}
+}
+
+% Spacing helper
+\newlength{\partskip}
+\setlength{\partskip}{4.5cm}
+\newcommand{\partspace}{\vspace*{\partskip}}
+
+\begin{document}
+
+\begin{center}
+\textbf{\Large \examtitle} \\
+\vspace{0.5cm}
+\makebox[0.4\textwidth]{Name: \enspace\hrulefill}
+\hspace{0.1\textwidth}
+\makebox[0.4\textwidth]{Date: \enspace\hrulefill}
+\end{center}
+
+\instructions
+\vspace{0.5cm}
+
+\begin{questions}
+\pointsinrightmargin
+
+% Q1 — 12.1 Sequences and Summation Notation
+\question[10]
+\textbf{Sequences and Notation.}
+\begin{parts}
+    \part Write the product $x_1(x_1+2x_2)(x_1+2x_2+3x_3)\cdots(x_1+2x_2+\cdots+nx_n)$ using product and summation notation.
+    \partspace
+    \part Evaluate $\displaystyle \sum_{i=1}^{6}\sum_{j=1}^{i}(2j-1)$ and express the result as a single integer.
+\end{parts}
+
+\newpage
+
+% Q2 — 12.2 Arithmetic Sequences
+\question[12]
+\textbf{Arithmetic Sequences.}
+\begin{parts}
+    \part An arithmetic sequence has $a_3=11$ and $a_{12}=47$. Find $a_1$, the common difference $d$, and $S_{12}$.
+    \partspace
+    \part Find the sum of the arithmetic series $639+631+623+\cdots+(-97)$.
+\end{parts}
+
+\newpage
+
+% Q3 — 12.3 Geometric Sequences
+\question[12]
+\textbf{Geometric Sequences.}
+\begin{parts}
+    \part Evaluate the infinite sum $\displaystyle \sum_{k=0}^{\infty}\frac{3^k+6^k}{9^k}$.
+    \partspace
+    \part Suppose $x, y, z$ form a geometric sequence with common ratio $r$ and $x\ne y$. If $x,2y,3z$ is an arithmetic sequence, find the value(s) of $r$.
+\end{parts}
+
+\newpage
+
+% Q4 — 12.4 Mathematics of Finance
+\question[12]
+\textbf{Mathematics of Finance.}
+\begin{parts}
+    \part A savings account pays $3.9\%$ APR compounded monthly. What equal monthly deposit is required to accumulate $\$15{,}000$ in $5$ years? Round to the nearest cent.
+    \partspace
+    \part A loan of $\$18{,}000$ has APR $6\%$ compounded monthly. If the payment is $\$350$ per month, how many payments are required to pay off the loan? Give the exact logarithmic expression and a rounded integer.
+\end{parts}
+
+\newpage
+
+% Q5 — 12.5 Mathematical Induction
+\question[12]
+\textbf{Mathematical Induction.}
+\begin{parts}
+    \part Prove that $1\cdot1!+2\cdot2!+\cdots+n\cdot n!=(n+1)!-1$ for all $n\ge1$.
+    \newpage
+    \part Prove that for all integers $n\ge1$, $\displaystyle \sum_{k=1}^{n}k^3=\left(\dfrac{n(n+1)}{2}\right)^2$.
+\end{parts}
+
+\newpage
+
+% Q6 — 12.6 The Binomial Theorem
+\question[12]
+\textbf{The Binomial Theorem.}
+\begin{parts}
+    \part Find the constant term in the expansion of $\left(x+\dfrac{2}{x^2}\right)^9$.
+    \partspace
+    \part Show that $\displaystyle \prod_{n=1}^{\infty}\left(3-\sum_{k=0}^{2^n}2^{-k}\right)=\prod_{n=1}^{\infty}\bigl(1+4^{-n}\bigr)$. Explain why the product converges and approximate its value to three decimal places.
+\end{parts}
+
+\newpage
+
+% Q7 — Mixed Skills / Short Answer
+\question[10]
+\textbf{Mixed Skills.}
+\begin{parts}
+    \part Find $k$ so that $36,\;300+k,\;596$ are three consecutive terms of an arithmetic sequence (in that order).
+    \partspace
+    \part Let $p(x_1,x_2,\dots,x_m)=\displaystyle\prod_{n=1}^{m}\sum_{k=1}^{n}x_k$. Find the sum of the coefficients of the expanded form of $p$.
+\end{parts}
+
+\newpage
+
+% Q8 — Cumulative Problem (challenge)
+\question[20]
+\textbf{Cumulative Challenge.}
+\begin{parts}
+    \part Show that if $a^2, b^2, c^2$ is an arithmetic sequence of positive real numbers, then $\dfrac{1}{b+c},\dfrac{1}{a+c},\dfrac{1}{a+b}$ is also an arithmetic sequence. Give a clear algebraic proof.
+    \partspace
+    \part Find the polynomial $f(x)$ such that $\displaystyle \sum_{k=1}^{n} f(k)=n^2-3n$ for every positive integer $n$.
+\end{parts}
+
+\end{questions}
+
+\end{document}
+
+
